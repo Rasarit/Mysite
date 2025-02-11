@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiran Rasarit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header {
+            background-color: #0B5D89;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav {
+            margin: 20px;
+        }
+        .nav button {
+            background-color: #0B5D89;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .container {
+            width: 70%;
+            margin: auto;
+            border: 2px solid black;
+            padding: 20px;
+            text-align: left;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .section {
+            display: none; /* Hide all sections initially */
+        }
+        #home {
+            display: block; /* Show home by default */
+        }
+        ul {
+            text-align: left;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.getElementById("home").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("games").style.display = "none";
+            document.getElementById("contact").style.display = "none";
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = "block";
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header">KIRAN RASARIT</div>
+
+    <div class="nav">
+        <button onclick="showSection('home')">HOME</button>
+        <button onclick="showSection('about')">ABOUT</button>
+        <button onclick="showSection('games')">Games Played</button>
+        <button onclick="showSection('contact')">Connect with Me</button>
+    </div>
+
+    <!-- Home Section -->
+    <div id="home" class="container section">
+        <p class="bold">Welcome to Kiran Rasarit’s Tactical Hub</p>
+        <p>Passionate about military simulation games and tactical gameplay? You’ve come to the right place. 
+        With over 300 hours in Arma 3 and experience in various milsim titles, I dive deep into immersive, 
+        strategy-driven combat. Whether you're looking for gameplay insights, tactical guides, or discussions 
+        on the best milsim experiences, this site is your go-to resource.</p>
+
+        <p>Join me as I explore the world of realistic warfare simulations, share tips, and connect with fellow tacticians. 
+        Ready to deploy? Let’s roll out!</p>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="container section">
+        <h2>About Me</h2>
+        <p>Welcome to my tactical hub! I'm <strong>Kiran Rasarit</strong>, a passionate gamer with a deep interest in military simulation (milsim) games and strategy-driven combat. 
+        With over <strong>300 hours in Arma 3</strong> and experience across various other milsim titles, I enjoy analyzing tactics, refining strategies, 
+        and immersing myself in realistic warfare simulations.</p>
+
+        <p>This website is a place where I share my insights, experiences, and tactical knowledge with like-minded players. 
+        Whether you're a beginner looking to get started or a seasoned tactician seeking to fine-tune your skills, you'll find valuable content here, including:</p>
+
+        <ul>
+            <li><strong>Gameplay breakdowns</strong> and tactical guides</li>
+            <li><strong>Milsim game reviews</strong> and recommendations</li>
+            <li>Discussions on <strong>realism, teamwork, and strategy</strong></li>
+            <li>Tips for improving <strong>coordination and combat effectiveness</strong></li>
+        </ul>
+
+        <p>Beyond gaming, I also have an academic and professional side, currently engaged in research and analysis, bringing a data-driven approach to my interests.</p>
+
+        <p>Feel free to explore, connect, and share your thoughts—let’s build a strong community of tacticians!</p>
+    </div>
+
+    <!-- Games Played Section -->
+    <div id="games" class="container section">
+        <h2>Games Played</h2>
+        <ul>
+            <li>Arma 3</li>
+            <li>Dirt Rally 2.0</li>
+            <li>Absolute Racing</li>
+            <li>God of War</li>
+            <li>Call of Duty: Modern Warfare</li>
+            <li>Battlefield V</li>
+            <li>Squad</li>
+            <li>Insurgency: Sandstorm</li>
+            <li>Escape from Tarkov</li>
+            <li>Hell Let Loose</li>
+            <li>Rainbow Six Siege</li>
+            <li>Ghost Recon: Wildlands</li>
+            <li>Ghost Recon: Breakpoint</li>
+            <li>Medal of Honor: Above and Beyond</li>
+            <li>War Thunder</li>
+            <li>World of Tanks</li>
+            <li>Sniper Elite 4</li>
+            <li>Company of Heroes 2</li>
+            <li>Post Scriptum</li>
+            <li>Verdun</li>
+            <li>Red Orchestra 2</li>
+            <li>DayZ</li>
+            <li>Mount & Blade II: Bannerlord</li>
+            <li>Heroes & Generals</li>
+            <li>America’s Army: Proving Grounds</li>
+            <li>Men of War: Assault Squad 2</li>
+            <li>Command & Conquer: Generals</li>
+            <li>Foxhole</li>
+            <li>Steel Division 2</li>
+            <li>Wargame: Red Dragon</li>
+            <li>Total War: Three Kingdoms</li>
+            <li>Age of Empires IV</li>
+            <li>Hearts of Iron IV</li>
+            <li>Anno 1800</li>
+            <li>Far Cry 6</li>
+            <li>Just Cause 4</li>
+            <li>Cyberpunk 2077</li>
+            <li>Red Dead Redemption 2</li>
+            <li>Assassin’s Creed Valhalla</li>
+            <li>Hitman 3</li>
+            <li>Watch Dogs: Legion</li>
+            <li>Mafia: Definitive Edition</li>
+            <li>FIFA 23</li>
+            <li>NBA 2K23</li>
+            <li>Forza Horizon 5</li>
+            <li>Gran Turismo 7</li>
+            <li>Project CARS 2</li>
+            <li>Assetto Corsa</li>
+        </ul>
+    </div>
+
+    <!-- Connect With Me Section -->
+    <div id="contact" class="container section">
+        <h2>Connect with Me</h2>
+        <p>Follow me on social media:</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/kiranrasarit/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/kiranrasarit?igsh=bHZmbXZxYmhrN3Rk" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/KIRANYADAV.G.J.V" target="_blank">Facebook</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
