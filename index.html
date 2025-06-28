@@ -3,129 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Rasarit | 3D Resume</title>
+  <title>Kiran Rasarit | 3D Resume Cards</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f8fafc;
-      color: #111;
+      background: #1d4ed8;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
     }
 
-    /* Container Layout */
-    .main {
+    .carousel-container {
       display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-
-    /* 3D Carousel */
-    .carousel {
-      width: 40%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 40px;
       perspective: 1200px;
-      background: #1d4ed8;
-      padding: 40px 0;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      padding: 60px 20px;
     }
 
     .card {
-      flex: 0 0 240px;
-      height: 200px;
-      margin: 0 20px;
+      flex: 0 0 300px;
+      height: 420px;
+      background: #e0f2fe;
       border-radius: 20px;
-      background: #ffffff10;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      text-align: center;
-      color: #fff;
-      cursor: pointer;
-      scroll-snap-align: center;
-      transition: transform 0.5s ease, filter 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       transform-style: preserve-3d;
-      position: relative;
+      transition: transform 0.5s, filter 0.3s;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    .card h3 {
-      margin-top: 20px;
+    .card h2 {
+      margin: 0;
+      padding: 20px;
       font-size: 20px;
-      color: #ffffff;
-      z-index: 2;
-      position: relative;
+      color: #1e3a8a;
+      background: #bfdbfe;
+      border-bottom: 2px solid #60a5fa;
+      flex-shrink: 0;
     }
 
     .card-content {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
       font-size: 14px;
-      margin-top: 15px;
-      padding: 0 15px;
-      color: #e0e0e0;
-      filter: blur(3px);
-      transition: filter 0.3s;
+      color: #1f2937;
     }
 
-    .card.active .card-content {
-      filter: none;
+    .card:not(.active) .card-content {
+      filter: blur(4px);
     }
 
     .card.active {
-      transform: scale(1.1);
-      background: #2563eb;
+      transform: scale(1.05);
       z-index: 10;
-    }
-
-    .card:not(.active) {
-      opacity: 0.7;
-      transform: scale(0.85) rotateY(-25deg);
-    }
-
-    /* Right Panel */
-    .content {
-      flex: 1;
-      padding: 50px 60px;
-      overflow-y: auto;
-    }
-
-    .content h1 {
-      margin: 0;
-      font-size: 28px;
-      color: #1e3a8a;
-    }
-
-    .content p {
-      margin-top: 5px;
-      font-size: 16px;
-      color: #334155;
-    }
-
-    .section {
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section h2 {
-      font-size: 22px;
-      color: #1e3a8a;
-      border-bottom: 2px solid #facc15;
-      padding-bottom: 10px;
-    }
-
-    .section ul {
-      padding-left: 20px;
     }
 
     .download-btn {
@@ -147,89 +85,46 @@
     }
 
     @media (max-width: 768px) {
-      .main {
-        flex-direction: column;
-      }
-      .carousel {
-        width: 100%;
-        height: auto;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-      }
-      .content {
-        padding: 30px;
+      .card {
+        flex: 0 0 85%;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="main">
-    <!-- 3D Horizontal Carousel -->
-    <div class="carousel" id="carousel">
-      <div class="card active" onclick="showSection(0)">
-        <h3>Summary</h3>
-        <div class="card-content">Overview of my profile & goals.</div>
-      </div>
-      <div class="card" onclick="showSection(1)">
-        <h3>Education</h3>
-        <div class="card-content">MBA and BSc (Hons) details.</div>
-      </div>
-      <div class="card" onclick="showSection(2)">
-        <h3>Experience</h3>
-        <div class="card-content">Internships and roles.</div>
-      </div>
-      <div class="card" onclick="showSection(3)">
-        <h3>Skills</h3>
-        <div class="card-content">Tech & soft skills.</div>
-      </div>
-      <div class="card" onclick="showSection(4)">
-        <h3>Projects</h3>
-        <div class="card-content">Practical work & ELP.</div>
-      </div>
-      <div class="card" onclick="showSection(5)">
-        <h3>Certifications</h3>
-        <div class="card-content">Courses & workshops.</div>
-      </div>
-      <div class="card" onclick="showSection(6)">
-        <h3>Achievements</h3>
-        <div class="card-content">Awards & recognitions.</div>
-      </div>
-      <div class="card" onclick="showSection(7)">
-        <h3>Contact</h3>
-        <div class="card-content">Email, phone & LinkedIn.</div>
+  <div class="carousel-container" id="carousel">
+    <div class="card active">
+      <h2>Summary</h2>
+      <div class="card-content">
+        Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.
       </div>
     </div>
 
-    <!-- Main Content Area -->
-    <div class="content">
-      <h1>KIRAN RASARIT</h1>
-      <p>Agribusiness Management | BSc Hons. Horticulture</p>
-
-      <div class="section active">
-        <h2>Professional Summary</h2>
-        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
-      </div>
-
-      <div class="section">
-        <h2>Education</h2>
+    <div class="card">
+      <h2>Education</h2>
+      <div class="card-content">
         <ul>
           <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
           <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
         </ul>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Work Experience</h2>
+    <div class="card">
+      <h2>Experience</h2>
+      <div class="card-content">
         <ul>
           <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
           <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
           <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
         </ul>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Skills & Competencies</h2>
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="card-content">
         <ul>
           <li>Sales & Market Research</li>
           <li>Power BI, SQL & Data Analysis</li>
@@ -238,15 +133,19 @@
           <li>Microsoft Office, Excel, PowerPoint</li>
         </ul>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Projects</h2>
+    <div class="card">
+      <h2>Projects</h2>
+      <div class="card-content">
         <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
         <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Certifications</h2>
+    <div class="card">
+      <h2>Certifications</h2>
+      <div class="card-content">
         <ul>
           <li>Advanced Excel & Power BI – ANGRAU</li>
           <li>30-Day SQL & Power BI Micro Courses</li>
@@ -255,18 +154,22 @@
           <li>Zoho Inventory Webinar</li>
         </ul>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Achievements</h2>
+    <div class="card">
+      <h2>Achievements</h2>
+      <div class="card-content">
         <ul>
           <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
           <li>Active Member – Finance Club, IABM</li>
           <li>NSS Volunteer – Social Work Initiatives</li>
         </ul>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Contact</h2>
+    <div class="card">
+      <h2>Contact</h2>
+      <div class="card-content">
         <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
         <p>Phone: 9100564064</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
@@ -274,33 +177,29 @@
     </div>
   </div>
 
-  <!-- Resume Button -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
     📄 Download Resume
   </a>
 
-  <!-- JavaScript Logic -->
   <script>
     const cards = document.querySelectorAll('.card');
-    const sections = document.querySelectorAll('.section');
+    let currentIndex = 0;
 
-    function showSection(index) {
-      cards.forEach(c => c.classList.remove('active'));
-      cards[index].classList.add('active');
-      sections.forEach(s => s.classList.remove('active'));
-      sections[index].classList.add('active');
+    function setActiveCard(index) {
+      cards.forEach((card, i) => {
+        card.classList.toggle('active', i === index);
+      });
     }
 
-    // Keyboard support
-    let currentIndex = 0;
+    // Arrow key navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') {
+      if (e.key === 'ArrowRight') {
         currentIndex = (currentIndex + 1) % cards.length;
-        showSection(currentIndex);
+        setActiveCard(currentIndex);
       }
-      if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') {
+      if (e.key === 'ArrowLeft') {
         currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        showSection(currentIndex);
+        setActiveCard(currentIndex);
       }
     });
 
@@ -311,13 +210,13 @@
     });
 
     document.addEventListener('touchend', (e) => {
-      const diffX = e.changedTouches[0].clientX - startX;
-      if (diffX < -40) {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff < -30) {
         currentIndex = (currentIndex + 1) % cards.length;
-        showSection(currentIndex);
-      } else if (diffX > 40) {
+        setActiveCard(currentIndex);
+      } else if (diff > 30) {
         currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        showSection(currentIndex);
+        setActiveCard(currentIndex);
       }
     });
   </script>
