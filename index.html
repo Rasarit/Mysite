@@ -1,73 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Rasarit | Resume Website</title>
+  <title>Kiran Rasarit | Resume</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #f6d365, #fda085);
       color: #222;
-    }
-
-    header {
-      background: linear-gradient(to right, #283e51, #485563);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin-bottom: 10px;
-      font-size: 36px;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    nav {
-      background: #008891;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding: 15px;
     }
 
-    nav button {
-      background: #f0f6f6;
-      color: #005f73;
-      font-weight: bold;
+    .sidebar {
+      width: 260px;
+      background-color: #003049;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+    }
+
+    .sidebar h1 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .sidebar p {
+      font-size: 14px;
+      margin-bottom: 30px;
+      color: #ccc;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .sidebar button {
+      background: #f77f00;
       border: none;
-      padding: 10px 18px;
+      color: white;
+      padding: 12px 20px;
+      margin: 6px 0;
       border-radius: 8px;
+      width: 80%;
+      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .sidebar button:hover {
+      background: #d62828;
+    }
+
+    .sidebar a.download-btn {
+      margin-top: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      background-color: #38b000;
+      padding: 10px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
       transition: 0.3s;
     }
 
-    nav button:hover {
-      background-color: #00afb9;
-      color: white;
+    .sidebar a.download-btn:hover {
+      background-color: #70e000;
     }
 
-    .content {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+    .main-content {
+      margin-left: 260px;
+      padding: 30px;
+      flex: 1;
     }
 
     .section {
       display: none;
       background: white;
-      margin-top: 20px;
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       animation: fadeIn 0.5s ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #003049;
     }
 
     @keyframes fadeIn {
@@ -75,44 +97,30 @@
       to {opacity: 1;}
     }
 
-    h2 {
-      color: #005f73;
-      margin-bottom: 10px;
-    }
-
     footer {
-      background: #283e51;
-      color: white;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #333;
     }
 
-    .download-btn {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: #f95738;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
+    a {
+      color: #d62828;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
     }
 
-    .download-btn:hover {
-      background-color: #f2542d;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <div class="sidebar">
     <h1>KIRAN RASARIT</h1>
-    <p>Agribusiness | Marketing | Strategy | Digital</p>
-  </header>
+    <p>Agribusiness Management<br/>BSc Hons. Horticulture</p>
 
-  <nav>
     <button onclick="showSection('summary')">Summary</button>
     <button onclick="showSection('education')">Education</button>
     <button onclick="showSection('experience')">Experience</button>
@@ -121,9 +129,11 @@
     <button onclick="showSection('certifications')">Certifications</button>
     <button onclick="showSection('achievements')">Achievements</button>
     <button onclick="showSection('contact')">Contact</button>
-  </nav>
 
-  <div class="content">
+    <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">Download Resume</a>
+  </div>
+
+  <div class="main-content">
     <div id="summary" class="section">
       <h2>Professional Summary</h2>
       <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
@@ -188,13 +198,10 @@
       <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
       <p>Phone: 9100564064</p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
-      <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">Download Resume</a>
     </div>
-  </div>
 
-  <footer>
-    &copy; 2025 Kiran Rasarit. Designed with 💡 for dynamic impact.
-  </footer>
+    <footer>&copy; 2025 Kiran Rasarit | All Rights Reserved</footer>
+  </div>
 
   <script>
     function showSection(id) {
@@ -203,6 +210,9 @@
         section.style.display = section.id === id ? 'block' : 'none';
       });
     }
+
+    // Optional: Show Summary by default
+    showSection('summary');
   </script>
 
 </body>
