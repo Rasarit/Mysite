@@ -41,34 +41,7 @@
       display: flex;
     }
 
-    /* LEFT: Content */
-    .content-area {
-      flex: 3;
-      padding: 40px 20px 40px 40px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
-
-    .card {
-      width: 100%;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      overflow-y: auto;
-      transition: all 0.3s ease;
-      max-height: 75vh;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      border-bottom: 2px solid #facc15;
-      padding-bottom: 10px;
-      color: #1e3a8a;
-    }
-
-    /* RIGHT: Vertical menu */
+    /* LEFT: Menu */
     .menu {
       width: 220px;
       background: #e0f2fe;
@@ -96,7 +69,34 @@
       background: linear-gradient(to right, #1d4ed8, #1e40af);
     }
 
-    /* Resume Download Button */
+    /* RIGHT: Content */
+    .content-area {
+      flex: 3;
+      padding: 40px 40px 40px 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .card {
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      overflow-y: auto;
+      transition: all 0.3s ease;
+      max-height: 75vh;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      border-bottom: 2px solid #facc15;
+      padding-bottom: 10px;
+      color: #1e3a8a;
+    }
+
+    /* Resume Button */
     .download-btn {
       position: fixed;
       bottom: 20px;
@@ -146,23 +146,15 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
     <h1>KIRAN JALA</h1>
     <p>Digital Marketing | Inventory Management</p>
   </header>
 
-  <!-- MAIN LAYOUT -->
+  <!-- Main -->
   <main>
-    <!-- LEFT SIDE: CONTENT CARD -->
-    <div class="content-area">
-      <div class="card" id="content">
-        <h2>Professional Summary</h2>
-        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, and CRM tools. Known for blending strategy with creativity to achieve business goals.</p>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE: MENU -->
+    <!-- Left: Menu -->
     <div class="menu">
       <button class="active" onclick="showSection('summary', this)">Summary</button>
       <button onclick="showSection('education', this)">Education</button>
@@ -173,14 +165,22 @@
       <button onclick="showSection('achievements', this)">Achievements</button>
       <button onclick="showSection('contact', this)">Contact</button>
     </div>
+
+    <!-- Right: Content -->
+    <div class="content-area">
+      <div class="card" id="content">
+        <h2>Professional Summary</h2>
+        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, and CRM tools. Known for blending strategy with creativity to achieve business goals.</p>
+      </div>
+    </div>
   </main>
 
-  <!-- DOWNLOAD BUTTON -->
+  <!-- Download Resume Button -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
     📄 Download Resume
   </a>
 
-  <!-- SCRIPT -->
+  <!-- JavaScript -->
   <script>
     const content = document.getElementById('content');
     const buttons = document.querySelectorAll('.menu button');
