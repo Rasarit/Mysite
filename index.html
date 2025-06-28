@@ -3,86 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Rasarit | 3D Resume Cards</title>
+  <title>Kiran Jala | Resume</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #1d4ed8;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #f3f4f6;
+      color: #1f2937;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    .carousel-container {
+    header {
+      background: #1d4ed8;
+      color: white;
+      padding: 20px 40px;
+      text-align: left;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+    }
+
+    main {
+      flex: 1;
       display: flex;
-      gap: 40px;
-      perspective: 1200px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 60px 20px;
-      width: 100vw;
+    }
+
+    /* Left content card */
+    .content-area {
+      flex: 3;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     .card {
-      flex: 0 0 300px;
-      height: 420px;
-      background: #e0f2fe;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      transform-style: preserve-3d;
-      transition: transform 0.5s, filter 0.3s;
-      scroll-snap-align: center;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      width: 100%;
+      max-width: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      overflow-y: auto;
+      transition: all 0.3s ease;
+      max-height: 70vh;
     }
 
     .card h2 {
-      margin: 0;
-      padding: 20px;
-      font-size: 20px;
+      margin-top: 0;
+      border-bottom: 2px solid #facc15;
+      padding-bottom: 8px;
       color: #1e3a8a;
-      background: #bfdbfe;
-      border-bottom: 2px solid #60a5fa;
-      flex-shrink: 0;
     }
 
-    .card-content {
-      padding: 20px;
-      overflow-y: auto;
+    /* Right vertical menu */
+    .menu {
       flex: 1;
+      padding: 40px 20px;
+      background: #e0f2fe;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .menu button {
+      width: 100%;
+      padding: 12px 20px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       font-size: 14px;
-      color: #1f2937;
-      max-height: 320px;
-      scrollbar-width: thin;
-      scrollbar-color: #888 #ddd;
+      text-align: left;
+      transition: background 0.3s;
     }
 
-    .card-content::-webkit-scrollbar {
-      width: 6px;
+    .menu button:hover,
+    .menu button.active {
+      background: #2563eb;
     }
 
-    .card-content::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 4px;
-    }
-
-    .card-content::-webkit-scrollbar-track {
-      background: #ddd;
-    }
-
-    .card:not(.active) .card-content {
-      filter: blur(4px);
-    }
-
-    .card.active {
-      transform: scale(1.05);
-      z-index: 10;
-    }
-
+    /* Download Button */
     .download-btn {
       position: fixed;
       bottom: 20px;
@@ -100,48 +116,71 @@
     .download-btn:hover {
       background: #ff6b00;
     }
-
-    @media (max-width: 768px) {
-      .card {
-        flex: 0 0 85%;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <div class="carousel-container" id="carousel">
-    <div class="card active">
-      <h2>Summary</h2>
-      <div class="card-content">
-        Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.
+  <!-- Header -->
+  <header>
+    <h1>KIRAN JALA</h1>
+    <p>Digital Marketing | Inventory Management</p>
+  </header>
+
+  <!-- Main layout -->
+  <main>
+    <!-- Left content card -->
+    <div class="content-area">
+      <div class="card" id="content">
+        <h2>Professional Summary</h2>
+        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
       </div>
     </div>
 
-    <div class="card">
-      <h2>Education</h2>
-      <div class="card-content">
+    <!-- Right menu -->
+    <div class="menu">
+      <button class="active" onclick="showSection('summary', this)">Summary</button>
+      <button onclick="showSection('education', this)">Education</button>
+      <button onclick="showSection('experience', this)">Experience</button>
+      <button onclick="showSection('skills', this)">Skills</button>
+      <button onclick="showSection('projects', this)">Projects</button>
+      <button onclick="showSection('certifications', this)">Certifications</button>
+      <button onclick="showSection('achievements', this)">Achievements</button>
+      <button onclick="showSection('contact', this)">Contact</button>
+    </div>
+  </main>
+
+  <!-- Download Button -->
+  <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
+    📄 Download Resume
+  </a>
+
+  <!-- Script -->
+  <script>
+    const content = document.getElementById('content');
+    const buttons = document.querySelectorAll('.menu button');
+
+    const sections = {
+      summary: `
+        <h2>Professional Summary</h2>
+        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
+      `,
+      education: `
+        <h2>Education</h2>
         <ul>
           <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
           <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
         </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Experience</h2>
-      <div class="card-content">
+      `,
+      experience: `
+        <h2>Work Experience</h2>
         <ul>
           <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
           <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
           <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
         </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Skills</h2>
-      <div class="card-content">
+      `,
+      skills: `
+        <h2>Skills</h2>
         <ul>
           <li>Sales & Market Research</li>
           <li>Power BI, SQL & Data Analysis</li>
@@ -149,20 +188,14 @@
           <li>Customer Engagement & Retention</li>
           <li>Microsoft Office, Excel, PowerPoint</li>
         </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Projects</h2>
-      <div class="card-content">
+      `,
+      projects: `
+        <h2>Projects</h2>
         <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
         <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Certifications</h2>
-      <div class="card-content">
+      `,
+      certifications: `
+        <h2>Certifications</h2>
         <ul>
           <li>Advanced Excel & Power BI – ANGRAU</li>
           <li>30-Day SQL & Power BI Micro Courses</li>
@@ -170,72 +203,29 @@
           <li>Lean Six Sigma Yellow Belt</li>
           <li>Zoho Inventory Webinar</li>
         </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Achievements</h2>
-      <div class="card-content">
+      `,
+      achievements: `
+        <h2>Achievements</h2>
         <ul>
           <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
           <li>Active Member – Finance Club, IABM</li>
           <li>NSS Volunteer – Social Work Initiatives</li>
         </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Contact</h2>
-      <div class="card-content">
+      `,
+      contact: `
+        <h2>Contact</h2>
         <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
         <p>Phone: 9100564064</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
-      </div>
-    </div>
-  </div>
+      `
+    };
 
-  <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
-    📄 Download Resume
-  </a>
+    function showSection(key, btn) {
+      content.innerHTML = sections[key];
 
-  <script>
-    const cards = document.querySelectorAll('.card');
-    let currentIndex = 0;
-
-    function setActiveCard(index) {
-      cards.forEach((card, i) => {
-        card.classList.toggle('active', i === index);
-      });
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     }
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % cards.length;
-        setActiveCard(currentIndex);
-      }
-      if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        setActiveCard(currentIndex);
-      }
-    });
-
-    // Swipe support
-    let startX = 0;
-    document.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    document.addEventListener('touchend', (e) => {
-      const diff = e.changedTouches[0].clientX - startX;
-      if (diff < -30) {
-        currentIndex = (currentIndex + 1) % cards.length;
-        setActiveCard(currentIndex);
-      } else if (diff > 30) {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        setActiveCard(currentIndex);
-      }
-    });
   </script>
 </body>
 </html>
