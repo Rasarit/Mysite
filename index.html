@@ -41,18 +41,17 @@
       display: flex;
     }
 
-    /* Content card on left */
+    /* LEFT: Content */
     .content-area {
       flex: 3;
-      padding: 40px;
+      padding: 40px 20px 40px 40px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
     }
 
     .card {
       width: 100%;
-      max-width: 700px;
       background: white;
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -69,19 +68,18 @@
       color: #1e3a8a;
     }
 
-    /* Right vertical menu */
+    /* RIGHT: Vertical menu */
     .menu {
-      flex: 1;
+      width: 220px;
       background: #e0f2fe;
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 15px;
     }
 
     .menu button {
-      width: 100%;
       padding: 12px 20px;
       background: linear-gradient(to right, #3b82f6, #2563eb);
       color: white;
@@ -138,6 +136,7 @@
         flex-direction: row;
         overflow-x: auto;
         flex-wrap: wrap;
+        width: 100%;
       }
       .content-area {
         padding: 20px;
@@ -147,15 +146,15 @@
 </head>
 <body>
 
-  <!-- Header with name and role -->
+  <!-- HEADER -->
   <header>
     <h1>KIRAN JALA</h1>
     <p>Digital Marketing | Inventory Management</p>
   </header>
 
-  <!-- Main content -->
+  <!-- MAIN LAYOUT -->
   <main>
-    <!-- Left: content area -->
+    <!-- LEFT SIDE: CONTENT CARD -->
     <div class="content-area">
       <div class="card" id="content">
         <h2>Professional Summary</h2>
@@ -163,7 +162,7 @@
       </div>
     </div>
 
-    <!-- Right: menu -->
+    <!-- RIGHT SIDE: MENU -->
     <div class="menu">
       <button class="active" onclick="showSection('summary', this)">Summary</button>
       <button onclick="showSection('education', this)">Education</button>
@@ -176,12 +175,12 @@
     </div>
   </main>
 
-  <!-- Download Resume Button -->
+  <!-- DOWNLOAD BUTTON -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
     📄 Download Resume
   </a>
 
-  <!-- JS to handle dynamic content -->
+  <!-- SCRIPT -->
   <script>
     const content = document.getElementById('content');
     const buttons = document.querySelectorAll('.menu button');
