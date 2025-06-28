@@ -3,110 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Rasarit | Resume Stacked</title>
+  <title>Kiran Rasarit | Resume 3D Menu</title>
   <style>
     body {
       margin: 0;
-      background: #246bfd;
       font-family: 'Segoe UI', sans-serif;
-      color: #1c1c1c;
-      padding: 60px 10px 140px;
+      background: #1d4ed8;
+      color: #111;
+      height: 100vh;
+      overflow: hidden;
       display: flex;
-      justify-content: center;
     }
 
-    .stack-container {
+    /* Left 3D Scroll Menu */
+    .menu {
+      width: 280px;
+      background: #2563eb;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      perspective: 1000px;
+    }
+
+    .menu-item {
+      background: #eff6ff;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      padding: 12px 20px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      transform: rotateX(-5deg) scale(0.95);
+      transition: transform 0.3s, background 0.3s;
+      font-weight: bold;
+    }
+
+    .menu-item:hover {
+      background: #dbeafe;
+      transform: rotateX(0deg) scale(1);
+    }
+
+    /* Right Panel */
+    .content {
+      flex: 1;
+      padding: 40px 60px;
+      overflow-y: auto;
+      background: #f8fafc;
       position: relative;
-      width: 100%;
-      max-width: 700px;
     }
 
-    .card {
-      position: absolute;
-      width: 100%;
-      padding: 30px;
-      background: linear-gradient(145deg, #ffffff, #e8efff);
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, opacity 0.3s ease;
+    .section {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
     }
 
-    .card:nth-child(1) { z-index: 8; transform: translateY(0); }
-    .card:nth-child(2) { z-index: 7; transform: translateY(50px); }
-    .card:nth-child(3) { z-index: 6; transform: translateY(100px); }
-    .card:nth-child(4) { z-index: 5; transform: translateY(150px); }
-    .card:nth-child(5) { z-index: 4; transform: translateY(200px); }
-    .card:nth-child(6) { z-index: 3; transform: translateY(250px); }
-    .card:nth-child(7) { z-index: 2; transform: translateY(300px); }
-    .card:nth-child(8) { z-index: 1; transform: translateY(350px); }
+    .section.active {
+      display: block;
+    }
 
-    .card h2 {
-      color: #0a0a23;
+    .section h2 {
       margin-top: 0;
-      font-size: 20px;
-      border-bottom: 2px solid #ffd700;
-      padding-bottom: 8px;
+      font-size: 24px;
+      color: #1e3a8a;
+      border-bottom: 2px solid #facc15;
+      padding-bottom: 10px;
     }
 
-    .card p, .card ul {
-      font-size: 15px;
-    }
-
-    .card ul {
+    .section ul {
       padding-left: 20px;
     }
 
-    .header-card {
-      text-align: center;
-      background: linear-gradient(to right, #fefefe, #dceeff);
-    }
-
-    .header-card h1 {
-      margin: 0;
-      font-size: 26px;
-      color: #00296b;
-    }
-
-    .header-card p {
-      font-size: 15px;
-      color: #495057;
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     .download-btn {
       position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 20px;
+      right: 20px;
       background: linear-gradient(to right, #fca311, #ff8800);
       color: white;
-      font-weight: bold;
-      text-decoration: none;
-      padding: 14px 30px;
+      padding: 14px 24px;
       border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+      z-index: 999;
     }
 
     .download-btn:hover {
       background: #ff6b00;
     }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #1e3a8a;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+      color: #334155;
+    }
   </style>
 </head>
 <body>
 
-  <div class="stack-container">
+  <!-- 3D Scroll Menu -->
+  <div class="menu">
+    <div class="menu-item" onclick="showSection('summary')">Summary</div>
+    <div class="menu-item" onclick="showSection('education')">Education</div>
+    <div class="menu-item" onclick="showSection('experience')">Experience</div>
+    <div class="menu-item" onclick="showSection('skills')">Skills</div>
+    <div class="menu-item" onclick="showSection('projects')">Projects</div>
+    <div class="menu-item" onclick="showSection('certifications')">Certifications</div>
+    <div class="menu-item" onclick="showSection('achievements')">Achievements</div>
+    <div class="menu-item" onclick="showSection('contact')">Contact</div>
+  </div>
 
-    <div class="card header-card">
+  <!-- Main Content -->
+  <div class="content">
+    <div class="header">
       <h1>KIRAN RASARIT</h1>
       <p>Agribusiness Management | BSc Hons. Horticulture</p>
     </div>
 
-    <div class="card">
+    <div id="summary" class="section active">
       <h2>Professional Summary</h2>
       <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
     </div>
 
-    <div class="card">
+    <div id="education" class="section">
       <h2>Education</h2>
       <ul>
         <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
@@ -114,7 +151,7 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div id="experience" class="section">
       <h2>Work Experience</h2>
       <ul>
         <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
@@ -123,8 +160,8 @@
       </ul>
     </div>
 
-    <div class="card">
-      <h2>Skills</h2>
+    <div id="skills" class="section">
+      <h2>Skills & Competencies</h2>
       <ul>
         <li>Sales & Market Research</li>
         <li>Power BI, SQL & Data Analysis</li>
@@ -134,13 +171,13 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div id="projects" class="section">
       <h2>Projects</h2>
       <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
       <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
     </div>
 
-    <div class="card">
+    <div id="certifications" class="section">
       <h2>Certifications</h2>
       <ul>
         <li>Advanced Excel & Power BI – ANGRAU</li>
@@ -151,7 +188,16 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div id="achievements" class="section">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
+        <li>Active Member – Finance Club, IABM</li>
+        <li>NSS Volunteer – Social Work Initiatives</li>
+      </ul>
+    </div>
+
+    <div id="contact" class="section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
       <p>Phone: 9100564064</p>
@@ -159,8 +205,17 @@
     </div>
   </div>
 
-  <!-- Fixed Resume Button -->
-  <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">📄 Download Resume</a>
+  <!-- Resume Download -->
+  <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
+    📄 Download Resume
+  </a>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
