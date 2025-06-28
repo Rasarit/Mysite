@@ -1,218 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kiran Rasarit | Resume</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f6d365, #fda085);
-      color: #222;
-      display: flex;
+      background: #f5f7fa;
+      color: #2d2d2d;
+      padding: 40px 20px;
+      box-sizing: border-box;
     }
 
-    .sidebar {
-      width: 260px;
-      background-color: #003049;
-      color: white;
-      height: 100vh;
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 30px;
-    }
-
-    .sidebar h1 {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
-
-    .sidebar p {
-      font-size: 14px;
-      margin-bottom: 30px;
-      color: #ccc;
-      text-align: center;
-      padding: 0 10px;
-    }
-
-    .sidebar button {
-      background: #f77f00;
-      border: none;
-      color: white;
-      padding: 12px 20px;
-      margin: 6px 0;
-      border-radius: 8px;
-      width: 80%;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .sidebar button:hover {
-      background: #d62828;
-    }
-
-    .sidebar a.download-btn {
-      margin-top: auto;
-      margin-bottom: 20px;
-      text-align: center;
-      background-color: #38b000;
-      padding: 10px 15px;
-      border-radius: 6px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .sidebar a.download-btn:hover {
-      background-color: #70e000;
-    }
-
-    .main-content {
-      margin-left: 260px;
+    .container {
+      max-width: 850px;
+      margin: auto;
       padding: 30px;
-      flex: 1;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #30475e;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #6c757d;
     }
 
     .section {
-      display: none;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      animation: fadeIn 0.5s ease-in-out;
       margin-bottom: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    h2 {
-      color: #003049;
+    .section-header {
+      background-color: #edf2f7;
+      color: #30475e;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      background-color: #fdfdfd;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .section-content.open {
+      padding: 15px 20px;
+      max-height: 600px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #0077b6;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .resume-btn:hover {
+      background-color: #023e8a;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
       margin-top: 30px;
+      color: #777;
       font-size: 14px;
-      color: #333;
-    }
-
-    a {
-      color: #d62828;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <h1>KIRAN RASARIT</h1>
-    <p>Agribusiness Management<br/>BSc Hons. Horticulture</p>
-
-    <button onclick="showSection('summary')">Summary</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('experience')">Experience</button>
-    <button onclick="showSection('skills')">Skills</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('certifications')">Certifications</button>
-    <button onclick="showSection('achievements')">Achievements</button>
-    <button onclick="showSection('contact')">Contact</button>
-
-    <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">Download Resume</a>
-  </div>
-
-  <div class="main-content">
-    <div id="summary" class="section">
-      <h2>Professional Summary</h2>
-      <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
+  <div class="container">
+    <div class="header">
+      <h1>KIRAN RASARIT</h1>
+      <p>Agribusiness Management | BSc Hons. Horticulture</p>
     </div>
 
-    <div id="education" class="section">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
-        <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
-      </ul>
+    <!-- SECTION TEMPLATE -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Professional Summary</div>
+      <div class="section-content">
+        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
+      </div>
     </div>
 
-    <div id="experience" class="section">
-      <h2>Work Experience</h2>
-      <ul>
-        <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
-        <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
-        <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
-      </ul>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Education</div>
+      <div class="section-content">
+        <ul>
+          <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
+          <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="skills" class="section">
-      <h2>Skills & Competencies</h2>
-      <ul>
-        <li>Sales & Market Research</li>
-        <li>Power BI, SQL & Data Analysis</li>
-        <li>Digital Marketing & SEO</li>
-        <li>Customer Engagement & Retention</li>
-        <li>Microsoft Office, Excel, PowerPoint</li>
-      </ul>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Experience</div>
+      <div class="section-content">
+        <ul>
+          <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
+          <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
+          <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="projects" class="section">
-      <h2>Projects & Training</h2>
-      <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
-      <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Skills</div>
+      <div class="section-content">
+        <ul>
+          <li>Sales & Market Research</li>
+          <li>Power BI, SQL & Data Analysis</li>
+          <li>Digital Marketing & SEO</li>
+          <li>Customer Engagement & Retention</li>
+          <li>Microsoft Office, Excel, PowerPoint</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="certifications" class="section">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Advanced Excel & Power BI – ANGRAU</li>
-        <li>30-Day SQL & Power BI Micro Courses</li>
-        <li>Digital Marketing Workshop – Jobaaj</li>
-        <li>Lean Six Sigma Yellow Belt</li>
-        <li>Zoho Inventory Webinar</li>
-      </ul>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Projects</div>
+      <div class="section-content">
+        <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
+        <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
+      </div>
     </div>
 
-    <div id="achievements" class="section">
-      <h2>Achievements</h2>
-      <ul>
-        <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
-        <li>Active Member – Finance Club, IABM</li>
-        <li>NSS Volunteer – Social Work Initiatives</li>
-      </ul>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Certifications</div>
+      <div class="section-content">
+        <ul>
+          <li>Advanced Excel & Power BI – ANGRAU</li>
+          <li>30-Day SQL & Power BI Micro Courses</li>
+          <li>Digital Marketing Workshop – Jobaaj</li>
+          <li>Lean Six Sigma Yellow Belt</li>
+          <li>Zoho Inventory Webinar</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
-      <p>Phone: 9100564064</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Achievements</div>
+      <div class="section-content">
+        <ul>
+          <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
+          <li>Active Member – Finance Club, IABM</li>
+          <li>NSS Volunteer – Social Work Initiatives</li>
+        </ul>
+      </div>
     </div>
 
-    <footer>&copy; 2025 Kiran Rasarit | All Rights Reserved</footer>
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">Contact</div>
+      <div class="section-content">
+        <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
+        <p>Phone: 9100564064</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+        <a class="resume-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">Download Resume</a>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Kiran Rasarit — All rights reserved.
+    </footer>
   </div>
 
   <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        section.style.display = section.id === id ? 'block' : 'none';
-      });
+    function toggle(el) {
+      const content = el.nextElementSibling;
+      content.classList.toggle('open');
     }
-
-    // Optional: Show Summary by default
-    showSection('summary');
   </script>
 
 </body>
