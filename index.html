@@ -12,7 +12,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      background: linear-gradient(135deg, #e0f7fa, #f0fdf4);
       color: #1f2937;
       height: 100vh;
       display: flex;
@@ -20,14 +20,14 @@
     }
 
     header {
-      background: linear-gradient(to right, #2563eb, #1d4ed8);
+      background: linear-gradient(to right, #0ea5e9, #3b82f6);
       color: white;
       padding: 20px 40px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 32px;
     }
 
     header p {
@@ -44,7 +44,7 @@
     /* LEFT: Menu */
     .menu {
       width: 220px;
-      background: #e0f2fe;
+      background: #dbeafe;
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
@@ -96,12 +96,12 @@
       color: #1e3a8a;
     }
 
-    /* Resume Button */
+    /* Download Resume */
     .download-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: linear-gradient(to right, #fca311, #fb8500);
+      background: linear-gradient(to right, #f59e0b, #ef4444);
       color: white;
       padding: 14px 24px;
       border-radius: 30px;
@@ -112,15 +112,16 @@
     }
 
     .download-btn:hover {
-      background: #ff6b00;
+      background: #d97706;
     }
 
     a {
-      color: #1e3a8a;
-      text-decoration: none;
+      color: #0c4a6e;
+      font-weight: 600;
     }
 
     a:hover {
+      color: #0369a1;
       text-decoration: underline;
     }
 
@@ -142,6 +143,11 @@
         padding: 20px;
       }
     }
+
+    .highlight {
+      font-weight: bold;
+      color: #dc2626;
+    }
   </style>
 </head>
 <body>
@@ -152,9 +158,9 @@
     <p>Digital Marketing | Inventory Management</p>
   </header>
 
-  <!-- Main -->
+  <!-- Main Layout -->
   <main>
-    <!-- Left: Menu -->
+    <!-- Left Menu -->
     <div class="menu">
       <button class="active" onclick="showSection('summary', this)">Summary</button>
       <button onclick="showSection('education', this)">Education</button>
@@ -166,21 +172,21 @@
       <button onclick="showSection('contact', this)">Contact</button>
     </div>
 
-    <!-- Right: Content -->
+    <!-- Right Content Card -->
     <div class="content-area">
       <div class="card" id="content">
         <h2>Professional Summary</h2>
-        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, and CRM tools. Known for blending strategy with creativity to achieve business goals.</p>
+        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, CRM tools, and inventory optimization. Known for blending strategy with creativity to achieve business goals.</p>
       </div>
     </div>
   </main>
 
-  <!-- Download Resume Button -->
+  <!-- Download Button -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
     📄 Download Resume
   </a>
 
-  <!-- JavaScript -->
+  <!-- JS Section Switch -->
   <script>
     const content = document.getElementById('content');
     const buttons = document.querySelectorAll('.menu button');
@@ -188,7 +194,7 @@
     const sections = {
       summary: `
         <h2>Professional Summary</h2>
-        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, and CRM tools. Known for blending strategy with creativity to achieve business goals.</p>
+        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, CRM tools, and inventory optimization. Known for blending strategy with creativity to achieve business goals.</p>
       `,
       education: `
         <h2>Education</h2>
@@ -208,9 +214,8 @@
       skills: `
         <h2>Skills</h2>
         <ul>
-          <li>Performance Marketing</li>
-          <li>Google Ads, Meta Ads</li>
-          <li>CRM Tools & Automation</li>
+          <li>Google & Meta Ads</li>
+          <li>CRM Automation</li>
           <li>Inventory Optimization</li>
           <li>SQL, Power BI, Excel</li>
         </ul>
@@ -218,15 +223,15 @@
       projects: `
         <h2>Projects</h2>
         <p><strong>Marketing Campaign Analysis:</strong> Designed and tracked lead gen campaigns using Google Ads and GA4.</p>
-        <p><strong>Inventory Streamlining:</strong> Built inventory models for retail flow using Excel and SQL analytics.</p>
+        <p><strong>Inventory Streamlining:</strong> Built inventory models using Excel and SQL analytics.</p>
       `,
       certifications: `
         <h2>Certifications</h2>
         <ul>
           <li>Advanced Excel & Power BI – ANGRAU</li>
           <li>Google Analytics 4 (GA4)</li>
-          <li>Digital Marketing Workshop – Jobaaj</li>
           <li>Lean Six Sigma Yellow Belt</li>
+          <li>Zoho Inventory Workshop</li>
         </ul>
       `,
       achievements: `
@@ -239,9 +244,10 @@
       `,
       contact: `
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
-        <p>Phone: 9100564064</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+        <p><span class="highlight">Mobile:</span> <a href="tel:+919100564064">9100564064</a></p>
+        <p><span class="highlight">Email:</span> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
+        <p><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+        <p><span class="highlight">Website:</span> <a href="https://kiranjala.in" target="_blank">kiranjala.in</a></p>
       `
     };
 
