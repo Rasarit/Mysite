@@ -2,60 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kiran Rasarit | Digital Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kiran Rasarit | Resume Website</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f4f6f9;
-      color: #333;
+      background: linear-gradient(to right, #f6d365, #fda085);
+      color: #222;
     }
+
     header {
-      background-color: #005f73;
+      background: linear-gradient(to right, #283e51, #485563);
       color: white;
-      padding: 30px 20px;
+      padding: 40px 20px;
       text-align: center;
     }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 18px;
+    }
+
     nav {
-      background-color: #0a9396;
+      background: #008891;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      padding: 10px;
+      gap: 12px;
+      padding: 15px;
     }
+
     nav button {
-      background-color: #94d2bd;
-      color: #001219;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
+      background: #f0f6f6;
+      color: #005f73;
       font-weight: bold;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
     }
+
+    nav button:hover {
+      background-color: #00afb9;
+      color: white;
+    }
+
     .content {
-      padding: 20px;
       max-width: 1000px;
       margin: auto;
+      padding: 20px;
     }
+
     .section {
       display: none;
+      background: white;
       margin-top: 20px;
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease-in-out;
     }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
     h2 {
       color: #005f73;
+      margin-bottom: 10px;
     }
+
     footer {
+      background: #283e51;
+      color: white;
       text-align: center;
       padding: 20px;
-      background-color: #005f73;
-      color: white;
       margin-top: 40px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #f95738;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #f2542d;
     }
   </style>
 </head>
@@ -63,18 +109,18 @@
 
   <header>
     <h1>KIRAN RASARIT</h1>
-    <p>Agribusiness Management | Market Strategy | Digital Marketing</p>
+    <p>Agribusiness | Marketing | Strategy | Digital</p>
   </header>
 
   <nav>
-    <button onclick="toggleSection('summary')">Professional Summary</button>
-    <button onclick="toggleSection('education')">Education</button>
-    <button onclick="toggleSection('experience')">Work Experience</button>
-    <button onclick="toggleSection('skills')">Skills</button>
-    <button onclick="toggleSection('projects')">Projects</button>
-    <button onclick="toggleSection('certifications')">Certifications</button>
-    <button onclick="toggleSection('achievements')">Achievements</button>
-    <button onclick="toggleSection('contact')">Contact</button>
+    <button onclick="showSection('summary')">Summary</button>
+    <button onclick="showSection('education')">Education</button>
+    <button onclick="showSection('experience')">Experience</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('certifications')">Certifications</button>
+    <button onclick="showSection('achievements')">Achievements</button>
+    <button onclick="showSection('contact')">Contact</button>
   </nav>
 
   <div class="content">
@@ -106,22 +152,22 @@
         <li>Sales & Market Research</li>
         <li>Power BI, SQL & Data Analysis</li>
         <li>Digital Marketing & SEO</li>
-        <li>Microsoft Office, Power BI & Excel</li>
         <li>Customer Engagement & Retention</li>
+        <li>Microsoft Office, Excel, PowerPoint</li>
       </ul>
     </div>
 
     <div id="projects" class="section">
       <h2>Projects & Training</h2>
-      <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce sales.</p>
-      <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers for production analysis.</p>
+      <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
+      <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
     </div>
 
     <div id="certifications" class="section">
-      <h2>Certifications & Training</h2>
+      <h2>Certifications</h2>
       <ul>
         <li>Advanced Excel & Power BI – ANGRAU</li>
-        <li>SQL & Power BI Micro Courses</li>
+        <li>30-Day SQL & Power BI Micro Courses</li>
         <li>Digital Marketing Workshop – Jobaaj</li>
         <li>Lean Six Sigma Yellow Belt</li>
         <li>Zoho Inventory Webinar</li>
@@ -129,31 +175,32 @@
     </div>
 
     <div id="achievements" class="section">
-      <h2>Achievements & Leadership</h2>
+      <h2>Achievements</h2>
       <ul>
         <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
         <li>Active Member – Finance Club, IABM</li>
-        <li>NSS Volunteer – Community Engagement</li>
+        <li>NSS Volunteer – Social Work Initiatives</li>
       </ul>
     </div>
 
     <div id="contact" class="section">
-      <h2>Contact Information</h2>
+      <h2>Contact</h2>
       <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
       <p>Phone: 9100564064</p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+      <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">Download Resume</a>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Kiran Rasarit | All Rights Reserved
+    &copy; 2025 Kiran Rasarit. Designed with 💡 for dynamic impact.
   </footer>
 
   <script>
-    function toggleSection(id) {
+    function showSection(id) {
       const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => {
-        sec.style.display = sec.id === id ? 'block' : 'none';
+      sections.forEach(section => {
+        section.style.display = section.id === id ? 'block' : 'none';
       });
     }
   </script>
