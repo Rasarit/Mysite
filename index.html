@@ -3,46 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Rasarit | Resume UI</title>
+  <title>Kiran Rasarit | Resume Stacked</title>
   <style>
     body {
       margin: 0;
       background: #246bfd;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 10px 100px;
-      box-sizing: border-box;
       color: #1c1c1c;
+      padding: 60px 10px 140px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stack-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
     }
 
     .card {
-      background: linear-gradient(145deg, #ffffff, #e8efff);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      border-radius: 20px;
+      position: absolute;
+      width: 100%;
       padding: 30px;
-      width: 90%;
-      max-width: 700px;
-      margin-bottom: 30px;
-      transition: transform 0.3s ease;
+      background: linear-gradient(145deg, #ffffff, #e8efff);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    .card:nth-child(1) { z-index: 8; transform: translateY(0); }
+    .card:nth-child(2) { z-index: 7; transform: translateY(50px); }
+    .card:nth-child(3) { z-index: 6; transform: translateY(100px); }
+    .card:nth-child(4) { z-index: 5; transform: translateY(150px); }
+    .card:nth-child(5) { z-index: 4; transform: translateY(200px); }
+    .card:nth-child(6) { z-index: 3; transform: translateY(250px); }
+    .card:nth-child(7) { z-index: 2; transform: translateY(300px); }
+    .card:nth-child(8) { z-index: 1; transform: translateY(350px); }
 
     .card h2 {
       color: #0a0a23;
       margin-top: 0;
-      font-size: 22px;
+      font-size: 20px;
       border-bottom: 2px solid #ffd700;
-      padding-bottom: 10px;
+      padding-bottom: 8px;
     }
 
     .card p, .card ul {
-      color: #333;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .card ul {
@@ -50,30 +57,32 @@
     }
 
     .header-card {
-      background: linear-gradient(135deg, #fefefe, #dceeff);
       text-align: center;
+      background: linear-gradient(to right, #fefefe, #dceeff);
     }
 
     .header-card h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 26px;
       color: #00296b;
     }
 
     .header-card p {
-      font-size: 16px;
+      font-size: 15px;
       color: #495057;
     }
 
     .download-btn {
       position: fixed;
-      bottom: 25px;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       background: linear-gradient(to right, #fca311, #ff8800);
       color: white;
       font-weight: bold;
       text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 50px;
+      padding: 14px 30px;
+      border-radius: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: 0.3s;
     }
@@ -85,87 +94,72 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="card header-card">
-    <h1>KIRAN RASARIT</h1>
-    <p>Agribusiness Management | BSc Hons. Horticulture</p>
+  <div class="stack-container">
+
+    <div class="card header-card">
+      <h1>KIRAN RASARIT</h1>
+      <p>Agribusiness Management | BSc Hons. Horticulture</p>
+    </div>
+
+    <div class="card">
+      <h2>Professional Summary</h2>
+      <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
+    </div>
+
+    <div class="card">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
+        <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Work Experience</h2>
+      <ul>
+        <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
+        <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
+        <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Skills</h2>
+      <ul>
+        <li>Sales & Market Research</li>
+        <li>Power BI, SQL & Data Analysis</li>
+        <li>Digital Marketing & SEO</li>
+        <li>Customer Engagement & Retention</li>
+        <li>Microsoft Office, Excel, PowerPoint</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
+      <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
+    </div>
+
+    <div class="card">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Advanced Excel & Power BI – ANGRAU</li>
+        <li>30-Day SQL & Power BI Micro Courses</li>
+        <li>Digital Marketing Workshop – Jobaaj</li>
+        <li>Lean Six Sigma Yellow Belt</li>
+        <li>Zoho Inventory Webinar</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
+      <p>Phone: 9100564064</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+    </div>
   </div>
 
-  <!-- Summary -->
-  <div class="card">
-    <h2>Professional Summary</h2>
-    <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
-  </div>
-
-  <!-- Education -->
-  <div class="card">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
-      <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
-    </ul>
-  </div>
-
-  <!-- Experience -->
-  <div class="card">
-    <h2>Work Experience</h2>
-    <ul>
-      <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
-      <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
-      <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
-    </ul>
-  </div>
-
-  <!-- Skills -->
-  <div class="card">
-    <h2>Skills & Competencies</h2>
-    <ul>
-      <li>Sales & Market Research</li>
-      <li>Power BI, SQL & Data Analysis</li>
-      <li>Digital Marketing & SEO</li>
-      <li>Customer Engagement & Retention</li>
-      <li>Microsoft Office, Excel, PowerPoint</li>
-    </ul>
-  </div>
-
-  <!-- Projects -->
-  <div class="card">
-    <h2>Projects</h2>
-    <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
-    <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
-  </div>
-
-  <!-- Certifications -->
-  <div class="card">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Advanced Excel & Power BI – ANGRAU</li>
-      <li>30-Day SQL & Power BI Micro Courses</li>
-      <li>Digital Marketing Workshop – Jobaaj</li>
-      <li>Lean Six Sigma Yellow Belt</li>
-      <li>Zoho Inventory Webinar</li>
-    </ul>
-  </div>
-
-  <!-- Achievements -->
-  <div class="card">
-    <h2>Achievements</h2>
-    <ul>
-      <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
-      <li>Active Member – Finance Club, IABM</li>
-      <li>NSS Volunteer – Social Work Initiatives</li>
-    </ul>
-  </div>
-
-  <!-- Contact -->
-  <div class="card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
-    <p>Phone: 9100564064</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
-  </div>
-
-  <!-- Resume Button -->
+  <!-- Fixed Resume Button -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">📄 Download Resume</a>
 
 </body>
