@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Rasarit | Resume 3D Menu</title>
+  <title>Kiran Rasarit | Resume UI</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -15,7 +19,6 @@
       display: flex;
     }
 
-    /* Left 3D Scroll Menu */
     .menu {
       width: 280px;
       background: #2563eb;
@@ -23,7 +26,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow-y: scroll;
+      overflow-y: auto;
       scroll-behavior: smooth;
       perspective: 1000px;
     }
@@ -46,7 +49,11 @@
       transform: rotateX(0deg) scale(1);
     }
 
-    /* Right Panel */
+    .menu-item.selected {
+      background: #93c5fd;
+      transform: scale(1.03);
+    }
+
     .content {
       flex: 1;
       padding: 40px 60px;
@@ -55,13 +62,33 @@
       position: relative;
     }
 
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #1e3a8a;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+      color: #334155;
+    }
+
     .section {
       display: none;
-      animation: fadeIn 0.4s ease-in-out;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     .section.active {
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section h2 {
@@ -74,11 +101,6 @@
 
     .section ul {
       padding-left: 20px;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
     }
 
     .download-btn {
@@ -100,28 +122,21 @@
       background: #ff6b00;
     }
 
-    .header {
-      margin-bottom: 30px;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 28px;
+    a {
       color: #1e3a8a;
+      text-decoration: none;
     }
 
-    .header p {
-      margin: 5px 0 0;
-      font-size: 16px;
-      color: #334155;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- 3D Scroll Menu -->
+  <!-- Left Menu -->
   <div class="menu">
-    <div class="menu-item" onclick="showSection('summary')">Summary</div>
+    <div class="menu-item selected" onclick="showSection('summary')">Summary</div>
     <div class="menu-item" onclick="showSection('education')">Education</div>
     <div class="menu-item" onclick="showSection('experience')">Experience</div>
     <div class="menu-item" onclick="showSection('skills')">Skills</div>
@@ -131,7 +146,7 @@
     <div class="menu-item" onclick="showSection('contact')">Contact</div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Right Panel -->
   <div class="content">
     <div class="header">
       <h1>KIRAN RASARIT</h1>
@@ -210,12 +225,52 @@
     📄 Download Resume
   </a>
 
+  <!-- Script -->
   <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+    const sections = document.querySelectorAll('.section');
+    const menuItems = document.querySelectorAll('.menu-item');
+    let currentIndex = 0;
 
+    function showSection(id) {
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      menuItems.forEach(btn => btn.classList.remove('selected'));
+      const clicked = Array.from(menuItems).find(btn => btn.textContent.trim().toLowerCase() === id.toLowerCase());
+      if (clicked) clicked.classList.add('selected');
+
+      currentIndex = Array.from(sections).findIndex(sec => sec.id === id);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 's', 'S'].includes(e.key)) {
+        currentIndex = (currentIndex + 1) % sections.length;
+        showSection(sections[currentIndex].id);
+      }
+      if (['ArrowUp', 'w', 'W'].includes(e.key)) {
+        currentIndex = (currentIndex - 1 + sections.length) % sections.length;
+        showSection(sections[currentIndex].id);
+      }
+    });
+
+    // Swipe support (optional)
+    let startY = 0;
+    document.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endY = e.changedTouches[0].clientY;
+      const diff = startY - endY;
+      if (diff > 50) {
+        currentIndex = (currentIndex + 1) % sections.length;
+        showSection(sections[currentIndex].id);
+      } else if (diff < -50) {
+        currentIndex = (currentIndex - 1 + sections.length) % sections.length;
+        showSection(sections[currentIndex].id);
+      }
+    });
+  </script>
 </body>
 </html>
