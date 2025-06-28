@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -55,20 +55,10 @@
     }
 
     header h1 {
-      margin: 0;
+      margin: 0 auto;
       font-size: 32px;
       text-align: center;
       flex: 1;
-    }
-
-    header p {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      margin: 0;
-      font-size: 14px;
-      opacity: 0.9;
     }
 
     .toggle-btn {
@@ -130,7 +120,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       padding: 30px;
       overflow-y: auto;
-      transition: all 0.3s ease;
       max-height: 75vh;
     }
 
@@ -190,118 +179,147 @@
       header h1 {
         font-size: 24px;
       }
-
-      header p {
-        font-size: 12px;
-      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>KIRAN JALA</h1>
-    <p>Digital Marketing | Inventory Management</p>
-    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
-  </header>
-
+  <header style="flex-direction: column; align-items: center;">
+  <h1 style="margin: 0; font-size: 32px; text-align: center;">KIRAN JALA</h1>
+  <p style="margin-top: 5px; font-size: 16px; text-align: center;">Agribusiness Management | Digital Marketing</p>
+  <button class="toggle-btn" onclick="toggleTheme()" style="position: absolute; top: 30px; right: 30px;">Toggle Theme</button>
+</header>
   <main>
-    <div class="menu">
-      <button class="active" onclick="showSection('summary', this)">Summary</button>
-      <button onclick="showSection('education', this)">Education</button>
-      <button onclick="showSection('experience', this)">Experience</button>
-      <button onclick="showSection('skills', this)">Skills</button>
-      <button onclick="showSection('projects', this)">Projects</button>
-      <button onclick="showSection('certifications', this)">Certifications</button>
-      <button onclick="showSection('achievements', this)">Achievements</button>
-      <button onclick="showSection('contact', this)">Contact</button>
-    </div>
-
+    <div class="menu" id="menu-buttons"></div>
     <div class="content-area">
-      <div class="card" id="content">
-        <h2>Professional Summary</h2>
-        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, CRM tools, and inventory optimization. Known for blending strategy with creativity to achieve business goals.</p>
-      </div>
+      <div class="card" id="content"></div>
     </div>
   </main>
-
-  <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
-    📄 Download Resume
-  </a>
-
+  <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">📄 Download Resume</a>
   <script>
     const content = document.getElementById('content');
-    const buttons = document.querySelectorAll('.menu button');
-
+    const menu = document.getElementById('menu-buttons');
     const sections = {
       summary: `
-        <h2>Professional Summary</h2>
-        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, CRM tools, and inventory optimization. Known for blending strategy with creativity to achieve business goals.</p>
-      `,
+  <h2>Professional Summary</h2>
+  <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain management. Adept at developing customer insights, negotiating with stakeholders and driving category growth. Strong understanding of inventory planning, merchandising, and promotional strategies to enhance market presence. Passionate about leveraging data-driven decision-making and industry best practices to drive sustainable business expansion.</p>
+  <p><strong>Open to relocate.</strong></p>
+`,
       education: `
-        <h2>Education</h2>
-        <ul>
-          <li><strong>MBA - Agribusiness Management</strong>, IABM Tirupati (2023–Present)</li>
-          <li><strong>BSc (Hons) Horticulture</strong>, Dr. YSR Horticultural University (2018–2022)</li>
-        </ul>
-      `,
+  <h2>Education</h2>
+  <div style="margin-bottom: 20px;">
+    <strong>MBA - Agribusiness Management (2023–Present)</strong><br>
+    Institute of Agri Business Management, Tirupati
+  </div>
+  <div style="margin-bottom: 20px;">
+    <strong>BSc (Hons) Horticulture (2018–2022)</strong><br>
+    Kadiri Babu Rao College of Horticulture, Dr. YSR Horticultural University
+  </div>
+`,
       experience: `
-        <h2>Experience</h2>
-        <ul>
-          <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
-          <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
-          <li><strong>Digital Marketing Intern</strong> – Fasal Mandi (Oct 2024)</li>
-        </ul>
-      `,
+  <h2>Work Experience</h2>
+  <div style="margin-bottom: 25px;">
+    <strong>Field Data Analyst | Prakritiaan Millet (Dec 2024 – Jan 2025)</strong>
+    <ul style="margin-top: 10px;">
+      <li>Conducted market research and competitor analysis for India-Nepal trade.</li>
+      <li>Provided strategic insights for branding, pricing, and customer targeting.</li>
+      <li>Assisted in developing data-driven marketing strategies.</li>
+    </ul>
+  </div>
+  <div style="margin-bottom: 25px;">
+    <strong>Marketing Intern | Akshayakalpa Organic (Oct 2024 – Nov 2024)</strong>
+    <ul style="margin-top: 10px;">
+      <li>Assisted in inventory tracking and order management to streamline operations.</li>
+      <li>Implemented customer engagement strategies to boost sales.</li>
+      <li>Analysed market trends to identify opportunities for business growth.</li>
+    </ul>
+  </div>
+  <div style="margin-bottom: 25px;">
+    <strong>Digital Marketing Intern | Fasal Mandi (Oct 2024)</strong>
+    <ul style="margin-top: 10px;">
+      <li>Optimized product listings for increased visibility and conversions.</li>
+      <li>Conducted SEO and market research to enhance digital presence.</li>
+      <li>Supported e-commerce growth initiatives to improve customer reach.</li>
+    </ul>
+  </div>
+`,
       skills: `
-        <h2>Skills</h2>
-        <ul>
-          <li>Google & Meta Ads</li>
-          <li>CRM Automation</li>
-          <li>Inventory Optimization</li>
-          <li>SQL, Power BI, Excel</li>
-        </ul>
-      `,
+  <h2>Skills & Competencies</h2>
+  <ul>
+    <li>Sales & Market Research</li>
+    <li>Power BI, SQL & Data Analysis</li>
+    <li>Relationship Management</li>
+    <li>Digital Marketing & SEO</li>
+    <li>Customer Engagement & Retention</li>
+    <li>Negotiation & Communication</li>
+    <li>Microsoft Office, Power BI & Excel</li>
+  </ul>
+`,
       projects: `
-        <h2>Projects</h2>
-        <p><strong>Marketing Campaign Analysis:</strong> Designed and tracked lead gen campaigns using Google Ads and GA4.</p>
-        <p><strong>Inventory Streamlining:</strong> Built inventory models using Excel and SQL analytics.</p>
-      `,
+  <h2>Projects & Training</h2>
+  <div style="margin-bottom: 20px;">
+    <strong>Experiential Learning Program (2021 – 2022)</strong><br>
+    Managed procurement and sales for greenhouse produce, generating significant revenue.
+  </div>
+  <div style="margin-bottom: 20px;">
+    <strong>Rural Horticultural Work Experience (2021)</strong><br>
+    Engaged with farmers and rural communities to analyse production chain efficiency.
+  </div>
+`,
       certifications: `
-        <h2>Certifications</h2>
-        <ul>
-          <li>Advanced Excel & Power BI – ANGRAU</li>
-          <li>Google Analytics 4 (GA4)</li>
-          <li>Lean Six Sigma Yellow Belt</li>
-          <li>Zoho Inventory Workshop</li>
-        </ul>
-      `,
+  <h2>Certifications & Training</h2>
+  <ul>
+    <li>Advanced Excel & Power BI – ANGRAU (2024)</li>
+    <li>30 Days SQL Micro Course – Data querying & handling</li>
+    <li>30 Days Power BI Micro Course – DAX, modeling, reporting</li>
+    <li>Digital Marketing Workshop – Jobaaj (2024)</li>
+    <li>Lean Six Sigma AI Yellow Belt Certified</li>
+    <li>Zoho Inventory Webinar – Zoho Corporation (2024)</li>
+  </ul>
+`,
       achievements: `
-        <h2>Achievements</h2>
-        <ul>
-          <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
-          <li>Finance Club – Event Organizer at IABM</li>
-          <li>NSS Volunteer – Rural Development Projects</li>
-        </ul>
-      `,
+  <h2>Achievements & Leadership</h2>
+  <ul>
+    <li>Runner-Up – VAMNICOM Pune SPARDHA 2024 (Treasure Hunt)</li>
+    <li>Active Member – Finance Club & Industrial Visits Club, IABM</li>
+    <li>NSS Volunteer – Community development participation</li>
+  </ul>
+`,
+      languages: `
+  <h2>Languages</h2>
+  <ul>
+    <li>English (Fluent)</li>
+    <li>Telugu (Native)</li>
+    <li>Hindi (Proficient)</li>
+  </ul>
+`,
       contact: `
-        <h2>Contact</h2>
-        <p><strong>Mobile:</strong> <a href="tel:+919100564064">9100564064</a></p>
-        <p><strong>Email:</strong> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
-      `
+  <h2>Contact</h2>
+  <p><strong>Address:</strong> Rudravaram, Pamulapadu, Nandyal, 518401</p>
+  <p><strong>Email:</strong> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
+  <p><strong>Phone:</strong> <a href="tel:+919100564064">9100564064</a></p>
+  <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+`
     };
-
+    for (const [key, label] of Object.entries({
+      summary: 'Summary', education: 'Education', experience: 'Experience',
+      skills: 'Skills', projects: 'Projects', certifications: 'Certifications',
+      achievements: 'Achievements', languages: 'Languages', contact: 'Contact'
+    })) {
+      const btn = document.createElement('button');
+      btn.textContent = label;
+      btn.onclick = () => showSection(key, btn);
+      menu.appendChild(btn);
+    }
     function showSection(key, btn) {
       content.innerHTML = sections[key];
-      buttons.forEach(b => b.classList.remove('active'));
+      [...menu.children].forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
-
     function toggleTheme() {
       const html = document.documentElement;
       html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
     }
+    showSection('summary', menu.firstChild);
   </script>
 </body>
 </html>
