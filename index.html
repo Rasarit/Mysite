@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kiran Jala | Resume</title>
   <style>
+    :root {
+      --light-bg: linear-gradient(to bottom right, #e0f7fa, #f0fdf4);
+      --light-header: linear-gradient(to right, #0ea5e9, #3b82f6);
+      --dark-bg: linear-gradient(to bottom right, #1e293b, #0f172a);
+      --dark-header: linear-gradient(to right, #1e40af, #1e3a8a);
+      --light-card: #ffffff;
+      --dark-card: #1e293b;
+      --light-text: #1f2937;
+      --dark-text: #f1f5f9;
+    }
+
+    [data-theme="light"] {
+      --bg: var(--light-bg);
+      --header: var(--light-header);
+      --card-bg: var(--light-card);
+      --text-color: var(--light-text);
+    }
+
+    [data-theme="dark"] {
+      --bg: var(--dark-bg);
+      --header: var(--dark-header);
+      --card-bg: var(--dark-card);
+      --text-color: var(--dark-text);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -12,43 +37,64 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e0f7fa, #f0fdf4);
-      color: #1f2937;
-      height: 100vh;
+      background: var(--bg);
+      color: var(--text-color);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background: linear-gradient(to right, #0ea5e9, #3b82f6);
+      background: var(--header);
       color: white;
-      padding: 20px 40px;
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
     }
 
     header h1 {
       margin: 0;
       font-size: 32px;
+      text-align: center;
+      flex: 1;
     }
 
     header p {
-      margin: 4px 0 0;
-      font-size: 16px;
-      font-weight: 300;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
     }
 
     main {
       flex: 1;
       display: flex;
+      padding: 40px 0;
     }
 
-    /* LEFT: Menu */
     .menu {
       width: 220px;
-      background: #dbeafe;
-      padding: 40px 20px;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
-      align-items: stretch;
       gap: 15px;
     }
 
@@ -61,7 +107,7 @@
       cursor: pointer;
       font-size: 14px;
       text-align: left;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .menu button:hover,
@@ -69,18 +115,17 @@
       background: linear-gradient(to right, #1d4ed8, #1e40af);
     }
 
-    /* RIGHT: Content */
     .content-area {
-      flex: 3;
-      padding: 40px 40px 40px 20px;
+      flex: 1;
+      padding: 0 40px;
       display: flex;
-      justify-content: flex-start;
       align-items: flex-start;
     }
 
     .card {
       width: 100%;
-      background: white;
+      background: var(--card-bg);
+      color: var(--text-color);
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       padding: 30px;
@@ -93,10 +138,22 @@
       margin-top: 0;
       border-bottom: 2px solid #facc15;
       padding-bottom: 10px;
-      color: #1e3a8a;
     }
 
-    /* Download Resume */
+    a {
+      color: #2563eb;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
     .download-btn {
       position: fixed;
       bottom: 20px;
@@ -108,59 +165,47 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      z-index: 999;
     }
 
     .download-btn:hover {
       background: #d97706;
     }
 
-    a {
-      color: #0c4a6e;
-      font-weight: 600;
-    }
-
-    a:hover {
-      color: #0369a1;
-      text-decoration: underline;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
     @media (max-width: 768px) {
       main {
         flex-direction: column;
       }
+
       .menu {
         flex-direction: row;
         overflow-x: auto;
         flex-wrap: wrap;
         width: 100%;
       }
+
       .content-area {
         padding: 20px;
       }
-    }
 
-    .highlight {
-      font-weight: bold;
-      color: #dc2626;
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <h1>KIRAN JALA</h1>
     <p>Digital Marketing | Inventory Management</p>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
   </header>
 
-  <!-- Main Layout -->
   <main>
-    <!-- Left Menu -->
     <div class="menu">
       <button class="active" onclick="showSection('summary', this)">Summary</button>
       <button onclick="showSection('education', this)">Education</button>
@@ -172,7 +217,6 @@
       <button onclick="showSection('contact', this)">Contact</button>
     </div>
 
-    <!-- Right Content Card -->
     <div class="content-area">
       <div class="card" id="content">
         <h2>Professional Summary</h2>
@@ -181,12 +225,10 @@
     </div>
   </main>
 
-  <!-- Download Button -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
     📄 Download Resume
   </a>
 
-  <!-- JS Section Switch -->
   <script>
     const content = document.getElementById('content');
     const buttons = document.querySelectorAll('.menu button');
@@ -244,10 +286,9 @@
       `,
       contact: `
         <h2>Contact</h2>
-        <p><span class="highlight">Mobile:</span> <a href="tel:+919100564064">9100564064</a></p>
-        <p><span class="highlight">Email:</span> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
-        <p><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
-        <p><span class="highlight">Website:</span> <a href="https://kiranjala.in" target="_blank">kiranjala.in</a></p>
+        <p><strong>Mobile:</strong> <a href="tel:+919100564064">9100564064</a></p>
+        <p><strong>Email:</strong> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
       `
     };
 
@@ -255,6 +296,11 @@
       content.innerHTML = sections[key];
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
     }
   </script>
 </body>
