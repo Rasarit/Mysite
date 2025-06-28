@@ -12,7 +12,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f3f4f6;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
       color: #1f2937;
       height: 100vh;
       display: flex;
@@ -20,20 +20,20 @@
     }
 
     header {
-      background: #1d4ed8;
+      background: linear-gradient(to right, #2563eb, #1d4ed8);
       color: white;
       padding: 20px 40px;
-      text-align: left;
     }
 
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 30px;
     }
 
     header p {
-      margin: 5px 0 0;
+      margin: 4px 0 0;
       font-size: 16px;
+      font-weight: 300;
     }
 
     main {
@@ -41,7 +41,7 @@
       display: flex;
     }
 
-    /* Left content card */
+    /* Content card on left */
     .content-area {
       flex: 3;
       padding: 40px;
@@ -55,55 +55,55 @@
       max-width: 700px;
       background: white;
       border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       padding: 30px;
       overflow-y: auto;
       transition: all 0.3s ease;
-      max-height: 70vh;
+      max-height: 75vh;
     }
 
     .card h2 {
       margin-top: 0;
       border-bottom: 2px solid #facc15;
-      padding-bottom: 8px;
+      padding-bottom: 10px;
       color: #1e3a8a;
     }
 
     /* Right vertical menu */
     .menu {
       flex: 1;
-      padding: 40px 20px;
       background: #e0f2fe;
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
       align-items: flex-start;
+      gap: 15px;
     }
 
     .menu button {
       width: 100%;
       padding: 12px 20px;
-      background: #3b82f6;
+      background: linear-gradient(to right, #3b82f6, #2563eb);
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 14px;
       text-align: left;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
     }
 
     .menu button:hover,
     .menu button.active {
-      background: #2563eb;
+      background: linear-gradient(to right, #1d4ed8, #1e40af);
     }
 
-    /* Download Button */
+    /* Resume Download Button */
     .download-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: linear-gradient(to right, #fca311, #ff8800);
+      background: linear-gradient(to right, #fca311, #fb8500);
       color: white;
       padding: 14px 24px;
       border-radius: 30px;
@@ -116,27 +116,54 @@
     .download-btn:hover {
       background: #ff6b00;
     }
+
+    a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      .menu {
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: wrap;
+      }
+      .content-area {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header with name and role -->
   <header>
     <h1>KIRAN JALA</h1>
     <p>Digital Marketing | Inventory Management</p>
   </header>
 
-  <!-- Main layout -->
+  <!-- Main content -->
   <main>
-    <!-- Left content card -->
+    <!-- Left: content area -->
     <div class="content-area">
       <div class="card" id="content">
         <h2>Professional Summary</h2>
-        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
+        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, and CRM tools. Known for blending strategy with creativity to achieve business goals.</p>
       </div>
     </div>
 
-    <!-- Right menu -->
+    <!-- Right: menu -->
     <div class="menu">
       <button class="active" onclick="showSection('summary', this)">Summary</button>
       <button onclick="showSection('education', this)">Education</button>
@@ -149,12 +176,12 @@
     </div>
   </main>
 
-  <!-- Download Button -->
+  <!-- Download Resume Button -->
   <a class="download-btn" href="https://drive.google.com/file/d/1P3TZCdg6E_7Wds_t5zPgvNUHAxnHIROg/view?usp=sharing" target="_blank">
     📄 Download Resume
   </a>
 
-  <!-- Script -->
+  <!-- JS to handle dynamic content -->
   <script>
     const content = document.getElementById('content');
     const buttons = document.querySelectorAll('.menu button');
@@ -162,7 +189,7 @@
     const sections = {
       summary: `
         <h2>Professional Summary</h2>
-        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain optimization. Adept at developing customer insights, negotiating with stakeholders, and driving category growth using data-driven decision-making.</p>
+        <p>Ambitious digital marketing & inventory specialist with a strong background in agribusiness. Skilled in performance marketing, market analytics, and CRM tools. Known for blending strategy with creativity to achieve business goals.</p>
       `,
       education: `
         <h2>Education</h2>
@@ -172,7 +199,7 @@
         </ul>
       `,
       experience: `
-        <h2>Work Experience</h2>
+        <h2>Experience</h2>
         <ul>
           <li><strong>Field Data Analyst</strong> – Prakritiaan Millet (Dec 2024 – Jan 2025)</li>
           <li><strong>Marketing Intern</strong> – Akshayakalpa Organic (Oct 2024 – Nov 2024)</li>
@@ -182,34 +209,33 @@
       skills: `
         <h2>Skills</h2>
         <ul>
-          <li>Sales & Market Research</li>
-          <li>Power BI, SQL & Data Analysis</li>
-          <li>Digital Marketing & SEO</li>
-          <li>Customer Engagement & Retention</li>
-          <li>Microsoft Office, Excel, PowerPoint</li>
+          <li>Performance Marketing</li>
+          <li>Google Ads, Meta Ads</li>
+          <li>CRM Tools & Automation</li>
+          <li>Inventory Optimization</li>
+          <li>SQL, Power BI, Excel</li>
         </ul>
       `,
       projects: `
         <h2>Projects</h2>
-        <p><strong>Experiential Learning Program:</strong> Managed greenhouse produce procurement and sales.</p>
-        <p><strong>Rural Horticultural Work Experience:</strong> Engaged with farmers to study production chain efficiency.</p>
+        <p><strong>Marketing Campaign Analysis:</strong> Designed and tracked lead gen campaigns using Google Ads and GA4.</p>
+        <p><strong>Inventory Streamlining:</strong> Built inventory models for retail flow using Excel and SQL analytics.</p>
       `,
       certifications: `
         <h2>Certifications</h2>
         <ul>
           <li>Advanced Excel & Power BI – ANGRAU</li>
-          <li>30-Day SQL & Power BI Micro Courses</li>
+          <li>Google Analytics 4 (GA4)</li>
           <li>Digital Marketing Workshop – Jobaaj</li>
           <li>Lean Six Sigma Yellow Belt</li>
-          <li>Zoho Inventory Webinar</li>
         </ul>
       `,
       achievements: `
         <h2>Achievements</h2>
         <ul>
           <li>Runner-Up – SPARDHA 2024 (VAMNICOM Pune)</li>
-          <li>Active Member – Finance Club, IABM</li>
-          <li>NSS Volunteer – Social Work Initiatives</li>
+          <li>Finance Club – Event Organizer at IABM</li>
+          <li>NSS Volunteer – Rural Development Projects</li>
         </ul>
       `,
       contact: `
@@ -222,7 +248,6 @@
 
     function showSection(key, btn) {
       content.innerHTML = sections[key];
-
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
