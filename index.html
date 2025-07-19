@@ -52,13 +52,14 @@
       align-items: center;
       justify-content: space-between;
       position: relative;
+      flex-direction: column;
+      align-items: center;
     }
 
     header h1 {
-      margin: 0 auto;
+      margin: 0;
       font-size: 32px;
       text-align: center;
-      flex: 1;
     }
 
     .toggle-btn {
@@ -160,6 +161,19 @@
       background: #d97706;
     }
 
+    .readme-box {
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 12px;
+      max-height: 250px;
+      overflow-y: auto;
+      font-size: 13px;
+      font-family: monospace;
+      border: 1px solid #334155;
+    }
+
     @media (max-width: 768px) {
       main {
         flex-direction: column;
@@ -182,143 +196,208 @@
     }
   </style>
 </head>
+
 <body>
-  <header style="flex-direction: column; align-items: center;">
-  <h1 style="margin: 0; font-size: 32px; text-align: center;">KIRAN JALA</h1>
-  <p style="margin-top: 5px; font-size: 16px; text-align: center;">Agribusiness Management | Digital Marketing</p>
-  <button class="toggle-btn" onclick="toggleTheme()" style="position: absolute; top: 30px; right: 30px;">Toggle Theme</button>
-</header>
+  <header>
+    <h1>KIRAN JALA</h1>
+    <p style="margin-top: 5px; font-size: 16px; text-align: center;">Agribusiness Management | Digital Marketing</p>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
   <main>
     <div class="menu" id="menu-buttons"></div>
     <div class="content-area">
       <div class="card" id="content"></div>
     </div>
   </main>
+
   <a class="download-btn" href="https://drive.google.com/file/d/1js24Xs7O6l9VZbxx96hJQ3fOXFoc_X17/view?usp=sharing" target="_blank">📄 Download Resume</a>
+
   <script>
     const content = document.getElementById('content');
     const menu = document.getElementById('menu-buttons');
+
     const sections = {
       summary: `
-  <h2>Professional Summary</h2>
-  <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain management. Adept at developing customer insights, negotiating with stakeholders and driving category growth. Strong understanding of inventory planning, merchandising, and promotional strategies to enhance market presence. Passionate about leveraging data-driven decision-making and industry best practices to drive sustainable business expansion.</p>
-  <p><strong>Open to relocate.</strong></p>
-`,
+        <h2>Professional Summary</h2>
+        <p>Ambitious Agribusiness Management (ABM) professional with expertise in market analysis, vendor management, and supply chain management. Adept at developing customer insights, negotiating with stakeholders and driving category growth. Strong understanding of inventory planning, merchandising, and promotional strategies to enhance market presence. Passionate about leveraging data-driven decision-making and industry best practices to drive sustainable business expansion.</p>
+        <p><strong>Open to relocate.</strong></p>
+      `,
       education: `
-  <h2>Education</h2>
-  <div style="margin-bottom: 20px;">
-    <strong>MBA - Agribusiness Management (2023–Present)</strong><br>
-    Institute of Agri Business Management, Tirupati
-  </div>
-  <div style="margin-bottom: 20px;">
-    <strong>BSc (Hons) Horticulture (2018–2022)</strong><br>
-    Kadiri Babu Rao College of Horticulture, Dr. YSR Horticultural University
-  </div>
-`,
+        <h2>Education</h2>
+        <div style="margin-bottom: 20px;">
+          <strong>MBA - Agribusiness Management (2023–Present)</strong><br>
+          Institute of Agri Business Management, Tirupati
+        </div>
+        <div style="margin-bottom: 20px;">
+          <strong>BSc (Hons) Horticulture (2018–2022)</strong><br>
+          Kadiri Babu Rao College of Horticulture,<br>
+          Dr. YSR Horticultural University
+        </div>
+      `,
       experience: `
-  <h2>Work Experience</h2>
-  <div style="margin-bottom: 25px;">
-    <strong>Field Data Analyst | Prakritiaan Millet (Dec 2024 – Jan 2025)</strong>
-    <ul style="margin-top: 10px;">
-      <li>Conducted market research and competitor analysis for India-Nepal trade.</li>
-      <li>Provided strategic insights for branding, pricing, and customer targeting.</li>
-      <li>Assisted in developing data-driven marketing strategies.</li>
-    </ul>
-  </div>
-  <div style="margin-bottom: 25px;">
-    <strong>Marketing Intern | Akshayakalpa Organic (Oct 2024 – Nov 2024)</strong>
-    <ul style="margin-top: 10px;">
-      <li>Assisted in inventory tracking and order management to streamline operations.</li>
-      <li>Implemented customer engagement strategies to boost sales.</li>
-      <li>Analysed market trends to identify opportunities for business growth.</li>
-    </ul>
-  </div>
-  <div style="margin-bottom: 25px;">
-    <strong>Digital Marketing Intern | Fasal Mandi (Oct 2024)</strong>
-    <ul style="margin-top: 10px;">
-      <li>Optimized product listings for increased visibility and conversions.</li>
-      <li>Conducted SEO and market research to enhance digital presence.</li>
-      <li>Supported e-commerce growth initiatives to improve customer reach.</li>
-    </ul>
-  </div>
-`,
+        <h2>Work Experience</h2>
+        <div style="margin-bottom: 25px;">
+          <strong>Field Data Analyst | Prakritiaan Millet (Dec 2024 – Jan 2025)</strong>
+          <ul>
+            <li>Conducted market research and competitor analysis for India-Nepal trade.</li>
+            <li>Provided strategic insights for branding, pricing, and customer targeting.</li>
+            <li>Assisted in developing data-driven marketing strategies.</li>
+          </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+          <strong>Marketing Intern | Akshayakalpa Organic (Oct 2024 – Nov 2024)</strong>
+          <ul>
+            <li>Assisted in inventory tracking and order management to streamline operations.</li>
+            <li>Implemented customer engagement strategies to boost sales.</li>
+            <li>Analysed market trends to identify opportunities for business growth.</li>
+          </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+          <strong>Digital Marketing Intern | Fasal Mandi (Oct 2024)</strong>
+          <ul>
+            <li>Optimized product listings for increased visibility and conversions.</li>
+            <li>Conducted SEO and market research to enhance digital presence.</li>
+            <li>Supported e-commerce growth initiatives to improve customer reach.</li>
+          </ul>
+        </div>
+      `,
       skills: `
-  <h2>Skills & Competencies</h2>
-  <ul>
-    <li>Sales & Market Research</li>
-    <li>Power BI, SQL & Data Analysis</li>
-    <li>Relationship Management</li>
-    <li>Digital Marketing & SEO</li>
-    <li>Customer Engagement & Retention</li>
-    <li>Negotiation & Communication</li>
-    <li>Microsoft Office, Power BI & Excel</li>
-  </ul>
-`,
+        <h2>Skills & Competencies</h2>
+        <ul>
+          <li>Sales & Market Research</li>
+          <li>Power BI, SQL & Data Analysis</li>
+          <li>Relationship Management</li>
+          <li>Digital Marketing & SEO</li>
+          <li>Customer Engagement & Retention</li>
+          <li>Negotiation & Communication</li>
+          <li>Microsoft Office, Power BI & Excel</li>
+        </ul>
+      `,
       projects: `
-  <h2>Projects & Training</h2>
-  <div style="margin-bottom: 20px;">
-    <strong>Experiential Learning Program (2021 – 2022)</strong><br>
-    Managed procurement and sales for greenhouse produce, generating significant revenue.
-  </div>
-  <div style="margin-bottom: 20px;">
-    <strong>Rural Horticultural Work Experience (2021)</strong><br>
-    Engaged with farmers and rural communities to analyse production chain efficiency.
-  </div>
-`,
+        <h2>Projects & Training</h2>
+        <div style="margin-bottom: 20px;">
+          <strong>Experiential Learning Program (2021 – 2022)</strong><br>
+          Managed procurement and sales for greenhouse produce, generating significant revenue.
+        </div>
+        <div style="margin-bottom: 20px;">
+          <strong>Rural Horticultural Work Experience (2021)</strong><br>
+          Engaged with farmers and rural communities to analyse production chain efficiency.
+        </div>
+      `,
+      dashboards: `
+        <h2>Dashboards (Power BI)</h2>
+
+        <div style="margin-bottom: 30px;">
+          <strong>📊 Ecommerce Order Analytics</strong>
+          <div style="display: flex; flex-direction: column; align-items:flex-start;">
+            <div style="width:100%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+              <iframe 
+                src="https://drive.google.com/embeddedfolderview?id=1QyfmfSQe94Q1PChyhMC4f3j0Ak4iulFU#list" 
+                style="width:100%; height:168px; border:0; margin:0; display:block;"></iframe>
+            </div>
+          </div>
+          <div class="readme-box">
+            <iframe src="https://drive.google.com/file/d/1OJUg1DMefbjbfXYyJxUQTQHlqGKK5pGB/preview" 
+              style="width:100%; height:234px; border:0;"></iframe>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <strong>🌾 Farmers Dashboard</strong>
+          <div style="display: flex; flex-direction: column; align-items:flex-start;">
+            <div style="width:100%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+              <iframe 
+                src="https://drive.google.com/embeddedfolderview?id=1hJJAVnqCtyDqefzGEeUcsXmJBuLWwcuM#list" 
+                style="width:100%; height:168px; border:0; margin:0; display:block;"></iframe>
+            </div>
+          </div>
+          <div class="readme-box">
+            <iframe src="https://drive.google.com/file/d/155duSvtgBA8-sxKut3U9-RfwbPl5bUU-/preview" 
+              style="width:100%; height:234px; border:0;"></iframe>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <strong>🎓 Students Dashboard</strong>
+          <div style="display: flex; flex-direction: column; align-items:flex-start;">
+            <div style="width:100%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+              <iframe 
+                src="https://drive.google.com/embeddedfolderview?id=1uUkdvuy0Av2lvnrgKcPWGOihhs4jrBD0#list" 
+                style="width:100%; height:168px; border:0; margin:0; display:block;"></iframe>
+            </div>
+          </div>
+          <div class="readme-box">
+            <iframe src="https://drive.google.com/file/d/1_cgd2IrxNyeb4ogZq65nSCsBt97SpQG7/preview" 
+              style="width:100%; height:234px; border:0;"></iframe>
+          </div>
+        </div>
+      `,
       certifications: `
-  <h2>Certifications & Training</h2>
-  <ul>
-    <li>Advanced Excel & Power BI – ANGRAU (2024)</li>
-    <li>30 Days SQL Micro Course – Data querying & handling</li>
-    <li>30 Days Power BI Micro Course – DAX, modeling, reporting</li>
-    <li>Digital Marketing Workshop – Jobaaj (2024)</li>
-    <li>Lean Six Sigma AI Yellow Belt Certified</li>
-    <li>Zoho Inventory Webinar – Zoho Corporation (2024)</li>
-  </ul>
-`,
+        <h2>Certifications & Training</h2>
+        <ul>
+          <li>Advanced Excel & Power BI – ANGRAU (2024)</li>
+          <li>30 Days SQL Micro Course – Data querying & handling</li>
+          <li>30 Days Power BI Micro Course – DAX, modeling, reporting</li>
+          <li>Digital Marketing Workshop – Jobaaj (2024)</li>
+          <li>Lean Six Sigma AI Yellow Belt Certified</li>
+          <li>Zoho Inventory Webinar – Zoho Corporation (2024)</li>
+        </ul>
+      `,
       achievements: `
-  <h2>Achievements & Leadership</h2>
-  <ul>
-    <li>Runner-Up – VAMNICOM Pune SPARDHA 2024 (Treasure Hunt)</li>
-    <li>Active Member – Finance Club & Industrial Visits Club, IABM</li>
-    <li>NSS Volunteer – Community development participation</li>
-  </ul>
-`,
+        <h2>Achievements & Leadership</h2>
+        <ul>
+          <li>Runner-Up – VAMNICOM Pune SPARDHA 2024 (Treasure Hunt)</li>
+          <li>Active Member – Finance Club & Industrial Visits Club, IABM</li>
+          <li>NSS Volunteer – Community development participation</li>
+        </ul>
+      `,
       languages: `
-  <h2>Languages</h2>
-  <ul>
-    <li>English (Fluent)</li>
-    <li>Telugu (Native)</li>
-    <li>Hindi (Proficient)</li>
-  </ul>
-`,
+        <h2>Languages</h2>
+        <ul>
+          <li>English (Fluent)</li>
+          <li>Telugu (Native)</li>
+          <li>Hindi (Proficient)</li>
+        </ul>
+      `,
       contact: `
-  <h2>Contact</h2>
-  <p><strong>Address:</strong> Rudravaram, Pamulapadu, Nandyal, 518401</p>
-  <p><strong>Email:</strong> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
-  <p><strong>Phone:</strong> <a href="tel:+919100564064">9100564064</a></p>
-  <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
-`
+        <h2>Contact</h2>
+        <p><strong>Address:</strong> Rudravaram, Pamulapadu, Nandyal, 518401</p>
+        <p><strong>Email:</strong> <a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919100564064">+91 9100564064</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></p>
+      `
     };
+
     for (const [key, label] of Object.entries({
-      summary: 'Summary', education: 'Education', experience: 'Experience',
-      skills: 'Skills', projects: 'Projects', certifications: 'Certifications',
-      achievements: 'Achievements', languages: 'Languages', contact: 'Contact'
+      summary: 'Summary',
+      education: 'Education',
+      experience: 'Experience',
+      skills: 'Skills',
+      projects: 'Projects & Training',
+      dashboards: 'Dashboards',
+      certifications: 'Certifications',
+      achievements: 'Achievements',
+      languages: 'Languages',
+      contact: 'Contact'
     })) {
       const btn = document.createElement('button');
       btn.textContent = label;
       btn.onclick = () => showSection(key, btn);
       menu.appendChild(btn);
     }
+
     function showSection(key, btn) {
       content.innerHTML = sections[key];
       [...menu.children].forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
+
     function toggleTheme() {
       const html = document.documentElement;
       html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
     }
+
     showSection('summary', menu.firstChild);
   </script>
 </body>
