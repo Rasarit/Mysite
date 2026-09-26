@@ -1,675 +1,309 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kiran Jala. | Resume</title>
-
-  <style>
-    :root {
-      --light-bg: linear-gradient(to bottom right, #e0f7fa, #f0fdf4);
-      --light-header: linear-gradient(to right, #0ea5e9, #3b82f6);
-      --dark-bg: linear-gradient(to bottom right, #1e293b, #0f172a);
-      --dark-header: linear-gradient(to right, #1e40af, #1e3a8a);
-      --light-card: #ffffff;
-      --dark-card: #1e293b;
-      --light-text: #1f2937;
-      --dark-text: #f1f5f9;
-    }
-
-    [data-theme="light"] {
-      --bg: var(--light-bg);
-      --header: var(--light-header);
-      --card-bg: var(--light-card);
-      --text-color: var(--light-text);
-    }
-
-    [data-theme="dark"] {
-      --bg: var(--dark-bg);
-      --header: var(--dark-header);
-      --card-bg: var(--dark-card);
-      --text-color: var(--dark-text);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background: var(--header);
-      color: white;
-      padding: 30px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-      text-align: center;
-    }
-
-    .toggle-btn {
-      position: absolute;
-      right: 30px;
-      top: 30px;
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      padding: 40px 0;
-    }
-
-    .menu {
-      width: 220px;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .menu button {
-      padding: 12px 20px;
-      background: linear-gradient(to right, #3b82f6, #2563eb);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      text-align: left;
-      transition: 0.3s ease;
-    }
-
-    .menu button:hover,
-    .menu button.active {
-      background: linear-gradient(to right, #1d4ed8, #1e40af);
-    }
-
-    .content-area {
-      flex: 1;
-      padding: 0 40px;
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .card {
-      width: 100%;
-      background: var(--card-bg);
-      color: var(--text-color);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      overflow-y: auto;
-      max-height: 75vh;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      border-bottom: 2px solid #facc15;
-      padding-bottom: 10px;
-    }
-
-    a {
-      color: #2563eb;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .download-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(to right, #f59e0b, #ef4444);
-      color: white;
-      padding: 14px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .download-btn:hover {
-      background: #d97706;
-    }
-
-    .readme-box {
-      background: #0f172a;
-      color: #f1f5f9;
-      padding: 10px 14px;
-      border-radius: 8px;
-      margin-top: 12px;
-      max-height: 250px;
-      overflow-y: auto;
-      font-size: 13px;
-      font-family: monospace;
-      border: 1px solid #334155;
-    }
-
-    @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-      }
-
-      .menu {
-        flex-direction: row;
-        overflow-x: auto;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-
-      .content-area {
-        padding: 20px;
-      }
-
-      header h1 {
-        font-size: 24px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Kiran Jala | Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#eef1f8; --card:#ffffff; --ink:#1a2233; --ink-soft:#5b6579;
+    --blue-1:#2563eb; --blue-2:#1e3a8a; --amber:#f5a623; --line:#e2e6f0;
+    --btn:#3b6fe0; --btn-hover:#2c4fb0; --font-display:'Poppins', system-ui, sans-serif;
+    --font-body:'Inter', system-ui, sans-serif;
+  }
+  [data-theme="dark"]{
+    --page:#0b1120; --card:#141c30; --ink:#e7ecf7; --ink-soft:#94a0ba;
+    --blue-1:#3b6fe0; --blue-2:#0f1c3f; --amber:#f5c04a; --line:#22304d;
+    --btn:#2c4fb0; --btn-hover:#3b6fe0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0; font-family:var(--font-body); background:var(--page); color:var(--ink);
+    min-height:100%; padding-bottom:env(safe-area-inset-bottom,0px); -webkit-font-smoothing:antialiased;
+    transition:background .3s ease, color .3s ease;
+  }
+  header{
+    background:linear-gradient(135deg, var(--blue-1), var(--blue-2));
+    padding:calc(48px + env(safe-area-inset-top,0px)) 32px 44px; text-align:center; position:relative;
+    box-shadow:0 6px 24px rgba(10,20,60,.18);
+  }
+  .eyebrow{font-size:14px; color:#cfdcff; margin:0 0 8px; font-weight:500;}
+  h1{
+    font-family:var(--font-display); font-weight:700; font-size:clamp(30px,5vw,44px);
+    margin:0 0 10px; color:#fff; letter-spacing:.01em;
+  }
+  header p.role{
+    font-size:15.5px; color:#dbe4ff; margin:0 auto; max-width:600px; line-height:1.55;
+  }
+  .toggle-btn{
+    position:absolute; right:28px; top:calc(28px + env(safe-area-inset-top,0px));
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4);
+    color:#fff; padding:8px 16px; border-radius:999px; cursor:pointer; font-size:12.5px;
+    font-family:var(--font-body); font-weight:500;
+  }
+  .toggle-btn:hover{background:rgba(255,255,255,.22);}
+  main{max-width:1080px; margin:-30px auto 0; display:flex; gap:26px; padding:0 28px 90px; align-items:flex-start; position:relative;}
+  nav{width:220px; flex-shrink:0; display:flex; flex-direction:column; gap:10px;}
+  nav button{
+    background:var(--btn); border:none; text-align:left; font-family:var(--font-body); font-weight:500;
+    font-size:14.5px; color:#fff; padding:13px 18px; border-radius:12px; cursor:pointer;
+    box-shadow:0 3px 10px rgba(30,58,138,.18); transition:background .15s ease, transform .1s ease;
+  }
+  nav button:hover{background:var(--btn-hover);}
+  nav button.active{background:linear-gradient(135deg, var(--blue-2), var(--btn-hover)); box-shadow:0 4px 14px rgba(30,58,138,.32);}
+  .card{
+    flex:1; min-width:0; background:var(--card); border-radius:18px; padding:36px 40px;
+    box-shadow:0 10px 34px rgba(20,30,70,.10); border:1px solid var(--line);
+  }
+  .card h2{
+    font-family:var(--font-display); font-weight:600; font-size:25px; margin:0 0 20px;
+    padding-bottom:14px; border-bottom:3px solid var(--amber); display:inline-block;
+  }
+  .card p{line-height:1.65; color:var(--ink-soft); max-width:660px;}
+  .card ul{padding-left:20px; margin:0;}
+  .card li{line-height:1.65; color:var(--ink-soft); margin-bottom:10px; max-width:660px;}
+  .card li strong, .card p strong{color:var(--ink); font-weight:600;}
+  a{color:var(--blue-1); font-weight:600; text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .role-block{margin-bottom:28px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .role-block:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+  .role-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px;}
+  .role-title{font-family:var(--font-display); font-size:17.5px; font-weight:600; color:var(--ink);}
+  .role-dates{font-size:12.5px; color:#fff; background:var(--blue-1); padding:3px 10px; border-radius:999px; white-space:nowrap; font-family:var(--font-body); font-weight:500;}
+  .edu-block{margin-bottom:22px;}
+  .edu-title{font-family:var(--font-display); font-weight:600; font-size:17px; margin-bottom:4px;}
+  .edu-sub{color:var(--ink-soft); font-size:14px;}
+  .skill-row{display:flex; justify-content:space-between; align-items:center; padding:12px 16px; margin-bottom:8px; background:var(--page); border-radius:10px; max-width:560px;}
+  .dash-block{margin-bottom:36px;}
+  .dash-title{font-family:var(--font-display); font-weight:600; font-size:17px; margin-bottom:12px;}
+  .dash-frame{width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#fff;}
+  .readme-box{margin-top:10px; border-radius:12px; overflow:hidden; border:1px solid var(--line);}
+  .contact-grid{display:grid; grid-template-columns:100px 1fr; gap:14px 16px; max-width:480px;}
+  .contact-grid dt{color:var(--ink-soft); font-size:13px; font-weight:500;}
+  .contact-grid dd{margin:0;}
+  .download-btn{
+    position:fixed; bottom:24px; right:24px; background:linear-gradient(135deg, var(--amber), #ef8a1f);
+    color:#fff; padding:14px 24px; border-radius:999px; text-decoration:none; font-weight:600; font-size:14px;
+    box-shadow:0 10px 26px rgba(245,166,35,.4);
+  }
+  .download-btn:hover{filter:brightness(1.05);}
+  @media(max-width:760px){
+    main{flex-direction:column; margin-top:-18px; padding:0 18px 80px;}
+    nav{width:100%; flex-direction:row; flex-wrap:wrap;}
+    nav button{flex:1 1 auto; text-align:center; padding:11px 12px; font-size:13px;}
+    .card{padding:26px 22px; border-radius:14px;}
+    .toggle-btn{top:20px; right:20px;}
+    header{padding:44px 20px 40px;}
+  }
+</style>
 </head>
-
 <body>
 
-  <header>
-    <h1>KIRAN JALA</h1>
-    <p style="margin-top: 5px; font-size: 16px; text-align: center;">
-      Agribusiness Management | Business Development | Market Expansion & Strategic Partnerships
-    </p>
-    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
-  </header>
+<header>
+  <p class="eyebrow">Agribusiness Management · Business Development · Market Expansion</p>
+  <h1>KIRAN JALA</h1>
+  <p class="role">Associate Account Manager at Swiggy Dineout, building restaurant partnerships across new markets with a background spanning horticulture, agri-input marketing, and field data work.</p>
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle theme</button>
+</header>
 
-  <main>
+<main>
+  <nav id="menu-buttons"></nav>
+  <div class="card" id="content"></div>
+</main>
 
-    <div class="menu" id="menu-buttons"></div>
+<a class="download-btn" href="https://drive.google.com/file/d/1121bNMl-GMF0ZtortVHCrldjlBRn0Us6/view" target="_blank">Download PDF</a>
 
-    <div class="content-area">
-      <div class="card" id="content"></div>
+<script>
+const content = document.getElementById('content');
+const menu = document.getElementById('menu-buttons');
+
+const sections = {
+
+  summary: `
+    <h2>Summary</h2>
+    <p>Agribusiness Management graduate with field exposure in crop protection marketing and short-term internships across agri marketing and data-related roles. Comfortable with fieldwork, farmer and retailer interaction, and using Excel and Power BI for practical analysis.</p>
+    <p><strong>Open to relocate.</strong></p>
+  `,
+
+  education: `
+    <h2>Education</h2>
+    <div class="edu-block">
+      <div class="edu-title">MBA — Agribusiness Management</div>
+      <div class="edu-sub">Institute of Agri Business Management, Tirupati · 2023–Present</div>
+    </div>
+    <div class="edu-block">
+      <div class="edu-title">BSc (Hons) Horticulture</div>
+      <div class="edu-sub">Kadiri Babu Rao College of Horticulture, Dr. YSR Horticultural University · 2018–2022</div>
+    </div>
+  `,
+
+  experience: `
+    <h2>Experience</h2>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span class="role-title">Associate Account Manager, Swiggy Dineout</span>
+        <span class="role-dates">Apr 2026 – Present</span>
+      </div>
+      <ul>
+        <li><strong>Market launch execution:</strong> launched and established the Dineout vertical in Tirupati and Rajahmundry from scratch, driving market development and restaurant acquisition.</li>
+        <li><strong>Rapid merchant acquisition:</strong> onboarded and activated 60+ restaurant partners in Tirupati and 25+ outlets in Rajahmundry.</li>
+        <li><strong>Commercial negotiation:</strong> secured flat 10% discounts from 80% of active accounts and premium 20% deals from 30% of high-volume accounts.</li>
+        <li><strong>Partner relationship management:</strong> owned the full cycle — prospecting, pitching, negotiation, onboarding, activation, ongoing engagement.</li>
+        <li><strong>Market development:</strong> identified high-potential accounts and executed market-level acquisition strategy to accelerate penetration.</li>
+        <li><strong>Performance management:</strong> monitored activation and deal adoption to prioritize high-potential accounts.</li>
+      </ul>
     </div>
 
-  </main>
-
-  <a
-    class="download-btn"
-    href="https://drive.google.com/file/d/1121bNMl-GMF0ZtortVHCrldjlBRn0Us6/view"
-    target="_blank"
-  >
-    📄 Download Resume
-  </a>
-
-  <script>
-
-    const content = document.getElementById('content');
-    const menu = document.getElementById('menu-buttons');
-
-    const sections = {
-
-      summary: `
-        <h2>Professional Summary</h2>
-
-        <p>
-          Agribusiness Management graduate with field exposure in crop protection
-          marketing and short-term internships in agri marketing and data-related
-          roles. Hands-on experience interacting with farmers and retailers,
-          supporting field demonstrations, and basic market reporting. Comfortable
-          with fieldwork, product awareness activities, and using Excel/Power BI
-          for simple analysis.
-        </p>
-
-        <p>
-          <strong>Open to relocate.</strong>
-        </p>
-      `,
-
-      education: `
-        <h2>Education</h2>
-
-        <div style="margin-bottom: 20px;">
-          <strong>MBA - Agribusiness Management (2023–Present)</strong><br>
-          Institute of Agri Business Management, Tirupati
-        </div>
-
-        <div style="margin-bottom: 20px;">
-          <strong>BSc (Hons) Horticulture (2018–2022)</strong><br>
-          Kadiri Babu Rao College of Horticulture,<br>
-          Dr. YSR Horticultural University
-        </div>
-      `,
-
-      experience: `
-        <h2>Work Experience</h2>
-
-        <!-- SWIGGY DINEOUT -->
-        <div style="margin-bottom: 25px;">
-
-          <strong>
-            Associate Account Manager | Swiggy Dineout (Apr 2026 – Present)
-          </strong>
-
-          <ul>
-
-            <li>
-              <strong>Market Launch Execution:</strong>
-              Successfully launched and established the Swiggy Dineout business
-              vertical in <strong>Tirupati and Rajahmundry</strong> from scratch,
-              driving market development and restaurant acquisition.
-            </li>
-
-            <li>
-              <strong>Rapid Merchant Acquisition:</strong>
-              Onboarded and activated <strong>60+ restaurant partners in Tirupati</strong>
-              during the initial launch phase and <strong>25+ outlets in Rajahmundry</strong>,
-              expanding Dineout's restaurant network across both markets.
-            </li>
-
-            <li>
-              <strong>Commercial Negotiation:</strong>
-              Secured <strong>flat 10% discounts from 80% of active accounts</strong>
-              and <strong>premium 20% deal discounts from 30% of high-volume accounts</strong>,
-              strengthening consumer value propositions and supporting transaction growth.
-            </li>
-
-            <li>
-              <strong>Partner Relationship Management:</strong>
-              Managed end-to-end restaurant partner relationships, including
-              prospecting, pitching, commercial negotiations, onboarding,
-              activation, and ongoing account engagement.
-            </li>
-
-            <li>
-              <strong>Market Development:</strong>
-              Identified high-potential restaurant accounts, developed local
-              partnerships, and executed market-level acquisition strategies
-              to accelerate Dineout penetration across new markets.
-            </li>
-
-            <li>
-              <strong>Sales & Performance Management:</strong>
-              Monitored outlet activation, deal adoption, and business
-              performance to prioritize high-potential accounts and improve
-              market productivity.
-            </li>
-
-          </ul>
-        </div>
-
-
-        <!-- CORTEVA -->
-        <div style="margin-bottom: 25px;">
-
-          <strong>
-            Market Development Officer | Corteva Agriscience (Aug 2025 – Jan 2026)
-          </strong>
-
-          <ul>
-
-            <li>
-              Regularly visited villages, interacted with farmers and retailers,
-              collected feedback on pest problems, and coordinated with TBM
-              during field days and product demos.
-            </li>
-
-            <li>
-              Supported local marketing activities like farmer meetings,
-              demo plots, and product awareness campaigns as per TBM’s plan.
-            </li>
-
-            <li>
-              Identified pest/disease issues in paddy like BPH, stem borer,
-              leaf folder and explained product usage, dose, and timing
-              under guidance of seniors.
-            </li>
-
-          </ul>
-        </div>
-
-
-        <!-- PRAKRITIAAN -->
-        <div style="margin-bottom: 25px;">
-
-          <strong>
-            Field Data Analyst | Prakritiaan Millet (Dec 2024 – Jan 2025)
-          </strong>
-
-          <ul>
-
-            <li>
-              This was a short remote project where I collected secondary data
-              on millet trade between India and Nepal, compared competitors’
-              pricing and branding, and shared a small report with basic insights.
-            </li>
-
-          </ul>
-        </div>
-
-
-        <!-- AKSHAYAKALPA -->
-        <div style="margin-bottom: 25px;">
-
-          <strong>
-            Marketing Intern | Akshayakalpa Organic (Oct 2024 – Nov 2024)
-          </strong>
-
-          <ul>
-
-            <li>
-              I supported inventory tracking and order follow-ups at the outlet
-              level and observed how customer engagement affects sales. I also
-              helped with basic market observations like which products move faster.
-            </li>
-
-          </ul>
-        </div>
-
-
-        <!-- FASAL MANDI -->
-        <div style="margin-bottom: 25px;">
-
-          <strong>
-            Digital Marketing Intern | Fasal Mandi (Oct 2024)
-          </strong>
-
-          <ul>
-
-            <li>
-              I worked on optimizing product listings like titles, descriptions
-              and keywords on their platform and did basic keyword research.
-              It was introductory-level digital marketing exposure.
-            </li>
-
-          </ul>
-        </div>
-      `,
-
-
-      skills: `
-        <h2>Skills & Competencies</h2>
-
-        <ul>
-          <li>Sales & Market Research</li>
-          <li>Excel (basic to intermediate – filters, pivots, charts)</li>
-          <li>Power BI (basic dashboards)</li>
-          <li>SQL (basic SELECT, WHERE, JOIN)</li>
-        </ul>
-      `,
-
-
-      projects: `
-        <h2>Projects & Training</h2>
-
-        <div style="margin-bottom: 20px;">
-          <strong>Experiential Learning Program (2021 – 2022)</strong><br>
-          I was part of a student group that handled small-scale greenhouse
-          produce sales. I helped in procurement tracking and basic sales coordination.
-        </div>
-
-        <div style="margin-bottom: 20px;">
-          <strong>Rural Horticultural Work Experience (2021)</strong><br>
-          Field exposure in rural villages to understand cropping practices,
-          pest and disease issues, and farmer input usage through direct interaction
-          with farmers.
-        </div>
-      `,
-
-
-      dashboards: `
-        <h2>Dashboards (Power BI)</h2>
-
-
-        <div style="margin-bottom: 30px;">
-
-          <strong>📊 Ecommerce Order Analytics</strong>
-
-          <div style="display: flex; flex-direction: column; align-items:flex-start;">
-
-            <div style="width:100%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
-
-              <iframe
-                src="https://drive.google.com/embeddedfolderview?id=1QyfmfSQe94Q1PChyhMC4f3j0Ak4iulFU#list"
-                style="width:100%; height:168px; border:0; margin:0; display:block;">
-              </iframe>
-
-            </div>
-
-          </div>
-
-          <div class="readme-box">
-
-            <iframe
-              src="https://drive.google.com/file/d/1z88T50u9m2kKu44PqUugKc9YCZJLo2BF/preview"
-              style="width:100%; height:234px; border:0;">
-            </iframe>
-
-          </div>
-
-        </div>
-
-
-        <div style="margin-bottom: 30px;">
-
-          <strong>🌾 Farmers Dashboard</strong>
-
-          <div style="display: flex; flex-direction: column; align-items:flex-start;">
-
-            <div style="width:100%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
-
-              <iframe
-                src="https://drive.google.com/embeddedfolderview?id=1hJJAVnqCtyDqefzGEeUcsXmJBuLWwcuM#list"
-                style="width:100%; height:168px; border:0; margin:0; display:block;">
-              </iframe>
-
-            </div>
-
-          </div>
-
-          <div class="readme-box">
-
-            <iframe
-              src="https://drive.google.com/file/d/155duSvtgBA8-sxKut3U9-RfwbPl5bUU-/preview"
-              style="width:100%; height:234px; border:0;">
-            </iframe>
-
-          </div>
-
-        </div>
-
-
-        <div style="margin-bottom: 30px;">
-
-          <strong>🎓 Students Dashboard</strong>
-
-          <div style="display: flex; flex-direction: column; align-items:flex-start;">
-
-            <div style="width:100%; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
-
-              <iframe
-                src="https://drive.google.com/embeddedfolderview?id=1uUkdvuy0Av2lvnrgKcPWGOihhs4jrBD0#list"
-                style="width:100%; height:168px; border:0; margin:0; display:block;">
-              </iframe>
-
-            </div>
-
-          </div>
-
-          <div class="readme-box">
-
-            <iframe
-              src="https://drive.google.com/file/d/1_cgd2IrxNyeb4ogZq65nSCsBt97SpQG7/preview"
-              style="width:100%; height:234px; border:0;">
-            </iframe>
-
-          </div>
-
-        </div>
-      `,
-
-
-      certifications: `
-        <h2>Certifications & Training</h2>
-
-        <ul>
-          <li>Advanced Excel & Power BI – ANGRAU (2024)</li>
-          <li>30 Days SQL Micro Course – Data querying & handling</li>
-          <li>30 Days Power BI Micro Course – DAX, modeling, reporting</li>
-          <li>Lean Six Sigma AI Yellow Belt Certified</li>
-        </ul>
-      `,
-
-
-      achievements: `
-        <h2>Achievements & Leadership</h2>
-
-        <ul>
-          <li>Runner-Up – VAMNICOM Pune SPARDHA 2024 (Treasure Hunt)</li>
-          <li>NSS Volunteer – Community development participation</li>
-        </ul>
-      `,
-
-
-      languages: `
-        <h2>Languages</h2>
-
-        <ul>
-          <li>English (Fluent)</li>
-          <li>Telugu (Native)</li>
-          <li>Hindi (Proficient)</li>
-        </ul>
-      `,
-
-
-      contact: `
-        <h2>Contact</h2>
-
-        <p>
-          <strong>Address:</strong>
-          Rudravaram, Pamulapadu, Nandyal, 518401
-        </p>
-
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:kiranrasarit@gmail.com">
-            kiranrasarit@gmail.com
-          </a>
-        </p>
-
-        <p>
-          <strong>Phone:</strong>
-          <a href="tel:+919100564064">
-            +91 9100564064
-          </a>
-        </p>
-
-        <p>
-          <strong>LinkedIn:</strong>
-          <a
-            href="https://www.linkedin.com/in/kiranrasarit"
-            target="_blank">
-            linkedin.com/in/kiranrasarit
-          </a>
-        </p>
-
-        <p>
-          <strong>GitHub:</strong>
-          <a
-            href="https://github.com/Rasarit"
-            target="_blank">
-            github.com/Rasarit
-          </a>
-        </p>
-      `
-    };
-
-
-    /* MENU BUTTONS */
-
-    for (const [key, label] of Object.entries({
-
-      summary: 'Summary',
-      education: 'Education',
-      experience: 'Experience',
-      skills: 'Skills',
-      projects: 'Projects & Training',
-      dashboards: 'Dashboards',
-      certifications: 'Certifications',
-      achievements: 'Achievements',
-      languages: 'Languages',
-      contact: 'Contact'
-
-    })) {
-
-      const btn = document.createElement('button');
-
-      btn.textContent = label;
-
-      btn.onclick = () => showSection(key, btn);
-
-      menu.appendChild(btn);
-    }
-
-
-    /* SHOW SECTION */
-
-    function showSection(key, btn) {
-
-      content.innerHTML = sections[key];
-
-      [...menu.children].forEach(
-        b => b.classList.remove('active')
-      );
-
-      btn.classList.add('active');
-    }
-
-
-    /* THEME TOGGLE */
-
-    function toggleTheme() {
-
-      const html = document.documentElement;
-
-      html.setAttribute(
-        "data-theme",
-        html.getAttribute("data-theme") === "dark"
-          ? "light"
-          : "dark"
-      );
-    }
-
-
-    /* DEFAULT SECTION */
-
-    showSection('summary', menu.firstChild);
-
-  </script>
+    <div class="role-block">
+      <div class="role-head">
+        <span class="role-title">Market Development Officer, Corteva Agriscience</span>
+        <span class="role-dates">Aug 2025 – Jan 2026</span>
+      </div>
+      <ul>
+        <li>Regularly visited villages, interacted with farmers and retailers, collected pest-problem feedback, and coordinated with the TBM during field days and product demos.</li>
+        <li>Supported local marketing activities — farmer meetings, demo plots, product awareness campaigns — per the TBM's plan.</li>
+        <li>Identified pest and disease issues in paddy (BPH, stem borer, leaf folder) and explained product usage, dose, and timing under senior guidance.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span class="role-title">Field Data Analyst, Prakritiaan Millet</span>
+        <span class="role-dates">Dec 2024 – Jan 2025</span>
+      </div>
+      <ul>
+        <li>Short remote project collecting secondary data on India–Nepal millet trade, comparing competitor pricing and branding, and sharing a small report with basic insights.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span class="role-title">Marketing Intern, Akshayakalpa Organic</span>
+        <span class="role-dates">Oct 2024 – Nov 2024</span>
+      </div>
+      <ul>
+        <li>Supported inventory tracking and order follow-ups at outlet level; observed how customer engagement affects sales and which products move faster.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span class="role-title">Digital Marketing Intern, Fasal Mandi</span>
+        <span class="role-dates">Oct 2024</span>
+      </div>
+      <ul>
+        <li>Optimized product listing titles, descriptions, and keywords; introductory-level keyword research and digital marketing exposure.</li>
+      </ul>
+    </div>
+  `,
+
+  skills: `
+    <h2>Skills</h2>
+    <div class="skill-row"><span>Sales &amp; market research</span></div>
+    <div class="skill-row"><span>Excel</span><span class="role-dates" style="color:var(--ink-soft)">filters, pivots, charts</span></div>
+    <div class="skill-row"><span>Power BI</span><span class="role-dates" style="color:var(--ink-soft)">dashboards, DAX basics</span></div>
+    <div class="skill-row"><span>SQL</span><span class="role-dates" style="color:var(--ink-soft)">SELECT, WHERE, JOIN</span></div>
+  `,
+
+  projects: `
+    <h2>Projects &amp; Training</h2>
+    <div class="edu-block">
+      <div class="edu-title">Experiential Learning Program</div>
+      <div class="edu-sub">2021–2022 — Student group handling small-scale greenhouse produce sales; procurement tracking and basic sales coordination.</div>
+    </div>
+    <div class="edu-block">
+      <div class="edu-title">Rural Horticultural Work Experience</div>
+      <div class="edu-sub">2021 — Field exposure across rural villages: cropping practices, pest and disease issues, farmer input usage through direct interaction.</div>
+    </div>
+  `,
+
+  dashboards: `
+    <h2>Dashboards</h2>
+    <div class="dash-block">
+      <div class="dash-title">Ecommerce Order Analytics</div>
+      <div class="dash-frame"><iframe src="https://drive.google.com/embeddedfolderview?id=1QyfmfSQe94Q1PChyhMC4f3j0Ak4iulFU#list" style="width:100%;height:168px;border:0;display:block;"></iframe></div>
+      <div class="readme-box"><iframe src="https://drive.google.com/file/d/1z88T50u9m2kKu44PqUugKc9YCZJLo2BF/preview" style="width:100%;height:220px;border:0;"></iframe></div>
+    </div>
+    <div class="dash-block">
+      <div class="dash-title">Farmers Dashboard</div>
+      <div class="dash-frame"><iframe src="https://drive.google.com/embeddedfolderview?id=1hJJAVnqCtyDqefzGEeUcsXmJBuLWwcuM#list" style="width:100%;height:168px;border:0;display:block;"></iframe></div>
+      <div class="readme-box"><iframe src="https://drive.google.com/file/d/155duSvtgBA8-sxKut3U9-RfwbPl5bUU-/preview" style="width:100%;height:220px;border:0;"></iframe></div>
+    </div>
+    <div class="dash-block">
+      <div class="dash-title">Students Dashboard</div>
+      <div class="dash-frame"><iframe src="https://drive.google.com/embeddedfolderview?id=1uUkdvuy0Av2lvnrgKcPWGOihhs4jrBD0#list" style="width:100%;height:168px;border:0;display:block;"></iframe></div>
+      <div class="readme-box"><iframe src="https://drive.google.com/file/d/1_cgd2IrxNyeb4ogZq65nSCsBt97SpQG7/preview" style="width:100%;height:220px;border:0;"></iframe></div>
+    </div>
+  `,
+
+  certifications: `
+    <h2>Certifications &amp; Training</h2>
+    <ul>
+      <li>Advanced Excel &amp; Power BI — ANGRAU (2024)</li>
+      <li>30 Days SQL Micro Course — data querying &amp; handling</li>
+      <li>30 Days Power BI Micro Course — DAX, modeling, reporting</li>
+      <li>Lean Six Sigma AI Yellow Belt Certified</li>
+    </ul>
+  `,
+
+  achievements: `
+    <h2>Achievements &amp; Leadership</h2>
+    <ul>
+      <li>Runner-Up — VAMNICOM Pune SPARDHA 2024 (Treasure Hunt)</li>
+      <li>NSS Volunteer — community development participation</li>
+    </ul>
+  `,
+
+  languages: `
+    <h2>Languages</h2>
+    <ul>
+      <li>English — Fluent</li>
+      <li>Telugu — Native</li>
+      <li>Hindi — Proficient</li>
+    </ul>
+  `,
+
+  contact: `
+    <h2>Contact</h2>
+    <dl class="contact-grid">
+      <dt>Address</dt><dd>Rudravaram, Pamulapadu, Nandyal, 518401</dd>
+      <dt>Email</dt><dd><a href="mailto:kiranrasarit@gmail.com">kiranrasarit@gmail.com</a></dd>
+      <dt>Phone</dt><dd><a href="tel:+919100564064">+91 9100564064</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/kiranrasarit" target="_blank">linkedin.com/in/kiranrasarit</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/Rasarit" target="_blank">github.com/Rasarit</a></dd>
+    </dl>
+  `
+};
+
+for (const [key, label] of Object.entries({
+  summary:'Summary', education:'Education', experience:'Experience', skills:'Skills',
+  projects:'Projects & Training', dashboards:'Dashboards', certifications:'Certifications',
+  achievements:'Achievements', languages:'Languages', contact:'Contact'
+})) {
+  const btn = document.createElement('button');
+  btn.textContent = label;
+  btn.onclick = () => showSection(key, btn);
+  menu.appendChild(btn);
+}
+
+function showSection(key, btn){
+  content.innerHTML = sections[key];
+  [...menu.children].forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function toggleTheme(){
+  const html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+}
+
+showSection('summary', menu.firstChild);
+</script>
 
 </body>
 </html>
